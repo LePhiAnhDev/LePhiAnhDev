@@ -2,7 +2,7 @@
 
 # 👋 Hey, I'm **Le Phi Anh**
 
-### Full-Stack Engineer | Building Scalable Web Solutions
+### Full-Stack Engineer | Blockchain Engineer | AI Engineer
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-000?style=for-the-badge&logo=vercel&logoColor=white)](https://lephianhdev.github.io/portfolio-page/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/phianhledev/)
@@ -10,12 +10,6 @@
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/lephianh386ht)
 
 </div>
-
----
-
-## 🚀 About Me
-
-I'm a passionate full-stack engineer with expertise in building modern, scalable web applications. I specialize in creating seamless user experiences on the frontend while architecting robust backend systems. Currently based in **Ho Chi Minh City, Vietnam**, and **actively seeking new opportunities** to contribute to innovative projects.
 
 ---
 
@@ -78,38 +72,15 @@ I'm a passionate full-stack engineer with expertise in building modern, scalable
             <img src="https://img.shields.io/badge/Git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
             <img src="https://img.shields.io/badge/Jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white" alt="Jira" />
             <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" />
-            <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" />
         </td>
     </tr>
 </table>
 
 ---
 
-## 📊 GitHub Stats
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=LePhiAnhDev&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" height="170" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=LePhiAnhDev&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="170" />
-</div>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=LePhiAnhDev&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
-</div>
-
----
-
-## 🎯 What I'm Currently Working On
-
-- 🔭 Building scalable full-stack applications with Next.js and Node.js
-- 🌱 Deepening my knowledge in microservices architecture and cloud-native technologies
-- 👯 Looking to collaborate on innovative open-source projects
-- 💡 Exploring AI/ML integration in web applications
-
----
-
 ## 📫 Let's Connect
 
-I'm always open to discussing new opportunities, collaborations, or just having a chat about technology!
+I'm always open to discussing new opportunities and collaborations!
 
 <div align="center">
 
@@ -123,16 +94,10 @@ I'm always open to discussing new opportunities, collaborations, or just having 
 
 <div align="center">
 
-### ⭐ Open for Opportunities | Full-Stack Engineer
+### ⭐ Open for Opportunities
 
 **📍 Ho Chi Minh City, Vietnam**
-
-<sub>💼 Available for freelance projects and full-time positions</sub>
 
 </div>
 
 ---
-
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=LePhiAnhDev&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile Views" />
-</div>
