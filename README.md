@@ -20,7 +20,7 @@
         <td align="center" width="200" valign="top">
             <h3>🎨 Frontend</h3>
         </td>
-        <td valign="top">
+        <td valign="middle">
             <img src="https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
             <img src="https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
             <img src="https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
@@ -74,7 +74,6 @@
             <img src="https://img.shields.io/badge/Jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white" alt="Jira" />
         </td>
     </tr>
-
 </table>
 
 ---
