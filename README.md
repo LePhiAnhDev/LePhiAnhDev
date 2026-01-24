@@ -80,13 +80,12 @@
 
 ## 📫 Let's Connect
 
-I'm always open to discussing new opportunities and collaborations!
-
 <div align="center">
 
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lephianh.dev@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Now-000?style=for-the-badge&logo=vercel&logoColor=white)](https://lephianhdev.github.io/portfolio-page/)
-[![LinkedIn](https://img.shields.io/badge/Let's%20Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/phianhledev/)
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LePhiAnhDev)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/lephianh386ht)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000?style=for-the-badge&logo=vercel&logoColor=white)](https://lephianhdev.github.io/portfolio-page/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/phianhledev/)
 
 </div>
 
