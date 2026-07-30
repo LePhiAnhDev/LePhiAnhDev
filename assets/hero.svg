@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="282" viewBox="0 0 900 282" fill="none" role="img">
+<defs>
+<clipPath id="hc"><rect x="0" y="0" width="900" height="282" rx="18"/></clipPath>
+<linearGradient id="hbg" x1="0" y1="0" x2="900" y2="282" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#0B0B12"/><stop offset="0.5" stop-color="#0A0A0F"/><stop offset="1" stop-color="#0C0A14"/>
+</linearGradient>
+<radialGradient id="ga" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0" stop-color="#6366F1" stop-opacity="0.32"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="gb" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0" stop-color="#8B5CF6" stop-opacity="0.28"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="pillStroke" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#8B5CF6" stop-opacity="0.55"/><stop offset="1" stop-color="#6366F1" stop-opacity="0.35"/>
+</linearGradient>
+<linearGradient id="wm" x1="450" y1="107" x2="450" y2="158" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CFC7F4"/>
+</linearGradient>
+<linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#8B5CF6" stop-opacity="0"/><stop offset="0.5" stop-color="#8B5CF6" stop-opacity="0.85"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="topline" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#6366F1" stop-opacity="0"/><stop offset="0.35" stop-color="#6366F1" stop-opacity="0.7"/><stop offset="0.65" stop-color="#8B5CF6" stop-opacity="0.7"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+</linearGradient>
+<filter id="grain" x="0" y="0" width="100%" height="100%">
+<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+<feColorMatrix type="saturate" values="0"/>
+</filter></defs>
+<style>
+
+@keyframes da{0%,100%{transform:translate(0,0)}50%{transform:translate(46px,-16px)}}
+@keyframes db{0%,100%{transform:translate(0,0)}50%{transform:translate(-38px,14px)}}
+.ga{animation:da 24s ease-in-out infinite}
+.gb{animation:db 19s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.ga,.gb{animation:none}}</style>
+
+<rect width="900" height="282" rx="18" fill="url(#hbg)"/>
+<g clip-path="url(#hc)">
+  <g class="ga"><ellipse cx="182" cy="34" rx="330" ry="188" fill="url(#ga)"/></g>
+  <g class="gb"><ellipse cx="762" cy="262" rx="330" ry="182" fill="url(#gb)"/></g>
+  <g clip-path="url(#hc)" opacity="0.02"><path d="M30 0V282M60 0V282M90 0V282M120 0V282M150 0V282M180 0V282M210 0V282M240 0V282M270 0V282M300 0V282M330 0V282M360 0V282M390 0V282M420 0V282M450 0V282M480 0V282M510 0V282M540 0V282M570 0V282M600 0V282M630 0V282M660 0V282M690 0V282M720 0V282M750 0V282M780 0V282M810 0V282M840 0V282M870 0V282M0 30H900M0 60H900M0 90H900M0 120H900M0 150H900M0 180H900M0 210H900M0 240H900M0 270H900" stroke="#FFFFFF" stroke-width="1"/></g>
+  <rect width="900" height="282" filter="url(#grain)" opacity="0.05"/>
+  <rect x="1" y="0" width="898" height="1.4" fill="url(#topline)"/>
+</g>
+<rect x="0.5" y="0.5" width="899" height="281" rx="17.5" fill="none" stroke="#232338"/>
+<path d="M18 30V18H30M870 18H882V30M882 252V264H870M30 264H18V252" stroke="#8B5CF6" stroke-width="1.2" opacity="0.4" fill="none" stroke-linecap="round"/>
+<rect x="307.3" y="39" width="285.41" height="28" rx="14" fill="#8B5CF6" fill-opacity="0.08" stroke="url(#pillStroke)" stroke-width="1"/><g transform="translate(321.3 45.5) scale(0.625)"><path d="M7.2 4.6 H16.8 V9.2 A4.8 4.8 0 0 1 7.2 9.2 Z M7.2 6 H4.9 A2.3 2.3 0 0 0 7.5 9.7 M16.8 6 H19.1 A2.3 2.3 0 0 1 16.5 9.7 M12 14 V17.2 M10.2 17.2 H13.8 M8.4 19.7 H15.6" fill="none" stroke="#A78BFA" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></g><text x="346.3" y="56.5" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" fill="#A78BFA" font-weight="700" letter-spacing="2.8">MAMMOTHON 2025 CHAMPION</text>
+<text x="222.68" y="152" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="58" fill="url(#wm)" font-weight="700" text-anchor="middle">L</text><text x="274.79" y="152" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="58" fill="url(#wm)" font-weight="700" text-anchor="middle">E</text><text x="363.96" y="152" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="58" fill="url(#wm)" font-weight="700" text-anchor="middle">P</text><text x="422.67" y="152" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="58" fill="url(#wm)" font-weight="700" text-anchor="middle">H</text><text x="470.26" y="152" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="58" fill="url(#wm)" font-weight="700" text-anchor="middle">I</text><text x="549.9" y="152" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="58" fill="url(#wm)" font-weight="700" text-anchor="middle">A</text><text x="609.44" y="152" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="58" fill="url(#wm)" font-weight="700" text-anchor="middle">N</text><text x="671.48" y="152" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="58" fill="url(#wm)" font-weight="700" text-anchor="middle">H</text>
+<text x="450.95" y="186" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" fill="#A9AECC" font-weight="500" letter-spacing="1.9" text-anchor="middle">Full-Stack Engineer  ·  Blockchain Engineer  ·  AI Engineer</text>
+<rect x="360" y="208" width="180" height="1.4" rx="0.7" fill="url(#rule)"/>
+<g transform="translate(318.89 225) scale(0.54167)"><path d="M12 21 C12 21 19 14.7 19 9.9 A7 7 0 1 0 5 9.9 C5 14.7 12 21 12 21 Z M12 12.3 m -2.6 0 a 2.6 2.6 0 1 0 5.2 0 a 2.6 2.6 0 1 0 -5.2 0" fill="none" stroke="#6E7295" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="338.89" y="236" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#6E7295" font-weight="600" letter-spacing="3.4">HO CHI MINH CITY, VIETNAM</text>
+</svg>

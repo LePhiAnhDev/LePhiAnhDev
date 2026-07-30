@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="142" viewBox="0 0 900 142" fill="none" role="img">
+<defs>
+<clipPath id="fc"><rect x="0" y="0" width="900" height="142" rx="16"/></clipPath>
+<linearGradient id="ff" x1="0" y1="0" x2="900" y2="142" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#0C0A14"/><stop offset="0.5" stop-color="#0A0A0F"/><stop offset="1" stop-color="#0B0B12"/>
+</linearGradient>
+<radialGradient id="fglow" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0" stop-color="#8B5CF6" stop-opacity="0.34"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="ftop" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#8B5CF6" stop-opacity="0"/><stop offset="0.5" stop-color="#8B5CF6" stop-opacity="0.75"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+</linearGradient></defs>
+<style>
+
+@keyframes bp{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes bh{0%{opacity:.28;r:3.4}70%{opacity:0;r:9}100%{opacity:0;r:9}}
+.pulse{animation:bp 2.8s ease-in-out infinite}
+.halo{animation:bh 2.8s ease-out infinite}
+@keyframes fg{0%,100%{transform:translate(0,0)}50%{transform:translate(0,-12px)}}
+.fg{animation:fg 16s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.fg,.pulse,.halo{animation:none}}</style>
+
+<rect width="900" height="142" rx="16" fill="url(#ff)"/>
+<g clip-path="url(#fc)">
+  <g class="fg"><ellipse cx="450" cy="160" rx="360" ry="120" fill="url(#fglow)"/></g>
+  <g clip-path="url(#fc)" opacity="0.016"><path d="M30 0V142M60 0V142M90 0V142M120 0V142M150 0V142M180 0V142M210 0V142M240 0V142M270 0V142M300 0V142M330 0V142M360 0V142M390 0V142M420 0V142M450 0V142M480 0V142M510 0V142M540 0V142M570 0V142M600 0V142M630 0V142M660 0V142M690 0V142M720 0V142M750 0V142M780 0V142M810 0V142M840 0V142M870 0V142M0 30H900M0 60H900M0 90H900M0 120H900" stroke="#FFFFFF" stroke-width="1"/></g>
+  <rect x="1" y="0" width="898" height="1.4" fill="url(#ftop)"/>
+</g>
+<rect x="0.5" y="0.5" width="899" height="141" rx="15.5" fill="none" stroke="#232338"/>
+<path d="M16 27V16H27M873 16H884V27M884 115V126H873M27 126H16V115" stroke="#8B5CF6" stroke-width="1.2" opacity="0.3" fill="none" stroke-linecap="round"/>
+<rect x="329.16" y="30" width="241.68" height="27" rx="13.5" fill="#8B5CF6" fill-opacity="0.07" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.32"/><circle cx="344.16" cy="43.5" r="3.4" fill="#A78BFA" opacity="0.28" class="halo"/><circle cx="344.16" cy="43.5" r="3.4" fill="#A78BFA" class="pulse"/><text x="359.16" y="47" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" fill="#A78BFA" font-weight="700" letter-spacing="2.8">OPEN TO OPPORTUNITIES</text>
+<text x="450" y="95" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="15.5" fill="#EDEDF7" font-weight="600" text-anchor="middle">Available for full-time roles, freelance projects and collaboration.</text>
+<g transform="translate(320.84 107) scale(0.54167)"><path d="M12 21 C12 21 19 14.7 19 9.9 A7 7 0 1 0 5 9.9 C5 14.7 12 21 12 21 Z M12 12.3 m -2.6 0 a 2.6 2.6 0 1 0 5.2 0 a 2.6 2.6 0 1 0 -5.2 0" fill="none" stroke="#6E7295" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><text x="340.84" y="118" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11.5" fill="#6E7295" font-weight="600" letter-spacing="2.6">HO CHI MINH CITY, VIETNAM</text>
+</svg>

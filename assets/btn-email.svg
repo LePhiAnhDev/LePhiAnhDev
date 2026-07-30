@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="111" height="46" viewBox="0 0 111 46" fill="none" role="img">
+<defs>
+<linearGradient id="pf" x1="0" y1="0" x2="102.84" y2="46" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#181830"/><stop offset="1" stop-color="#131322"/>
+</linearGradient>
+<linearGradient id="ps" x1="0" y1="0" x2="102.84" y2="46" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#6366F1" stop-opacity="0.85"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0.5"/>
+</linearGradient></defs>
+
+<rect x="4.5" y="0.5" width="101.84" height="45" rx="12.5" fill="url(#pf)" stroke="url(#ps)" stroke-width="1"/>
+<g transform="translate(22 14.5) scale(0.70833)"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#A78BFA"/></g>
+<text x="49" y="27.6" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#EDEDF7" font-weight="600" letter-spacing="0.4">Email</text>
+</svg>

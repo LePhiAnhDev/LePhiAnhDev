@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="133" height="46" viewBox="0 0 133 46" fill="none" role="img">
+<defs>
+<linearGradient id="pf" x1="0" y1="0" x2="124.13" y2="46" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#181830"/><stop offset="1" stop-color="#131322"/>
+</linearGradient>
+<linearGradient id="ps" x1="0" y1="0" x2="124.13" y2="46" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#6366F1" stop-opacity="0.85"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0.5"/>
+</linearGradient></defs>
+
+<rect x="4.5" y="0.5" width="123.13" height="45" rx="12.5" fill="url(#pf)" stroke="url(#ps)" stroke-width="1"/>
+<g transform="translate(22 14.5) scale(0.70833)"><path d="M7.8 16.2 L16.2 7.8 M9.6 7.8 H16.2 V14.4" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="49" y="27.6" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#EDEDF7" font-weight="600" letter-spacing="0.4">Portfolio</text>
+</svg>

@@ -1,97 +1,81 @@
-<div align="center">
+<!--
+  Every graphic on this page is generated, not hand-drawn in an editor.
+  Source of truth: scripts/build-assets.mjs  →  assets/*.svg
+  Change a role, a stack entry or an award in that script's data blocks and run
+  `node scripts/build-assets.mjs` (no dependencies). Do not hand-edit the SVGs.
 
-# 👋 Hey, I'm **Le Phi Anh**
+  Block choice is load-bearing, not stylistic. GitHub gives <div> no margin and
+  <p> a 16px bottom margin, so a section header sits tight against the block it
+  labels (<div>) while the last block of each section pushes the next section
+  away (<p>). Keep it that way, and never leave a blank line inside one of these
+  HTML blocks — that ends the raw-HTML run and the tags render as literal text.
+-->
 
-### Full-Stack Engineer | Blockchain Engineer | AI Engineer
-
-</div>
-
----
-
-## 💻 Tech Stack
-
-<table align="center" width="100%">
-    <tr>
-        <td align="center" width="200" valign="top">
-            <h3>🎨 Frontend</h3>
-        </td>
-        <td valign="middle">
-            <img src="https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-            <img src="https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
-            <img src="https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
-            <img src="https://img.shields.io/badge/TailwindCSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
-            <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="Shadcn UI" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center" width="200" valign="top">
-            <h3>⚙️ Backend</h3>
-        </td>
-        <td valign="middle">
-            <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white" alt="Node.js" />
-            <img src="https://img.shields.io/badge/NestJS-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" />
-            <img src="https://img.shields.io/badge/Express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="Express.js" />
-            <img src="https://img.shields.io/badge/Gin-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Gin (Go)" />
-            <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center" width="200" valign="top">
-            <h3>💾 Databases</h3>
-        </td>
-        <td valign="middle">
-            <img src="https://img.shields.io/badge/PostgreSQL-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-            <img src="https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-            <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB" />
-            <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-            <img src="https://img.shields.io/badge/SQLite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center" width="200" valign="top">
-            <h3>☁️ DevOps & Infra</h3>
-        </td>
-        <td valign="middle">
-            <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
-            <img src="https://img.shields.io/badge/Docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-            <img src="https://img.shields.io/badge/Nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white" alt="Nginx" />
-            <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS" />
-            <img src="https://img.shields.io/badge/Vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center" width="200" valign="top">
-            <h3>🛠️ Tools & Others</h3>
-        </td>
-        <td valign="middle">
-            <img src="https://img.shields.io/badge/Git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-            <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" />
-            <img src="https://img.shields.io/badge/Jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white" alt="Jira" />
-        </td>
-    </tr>
-</table>
-
----
-
-## 📫 Let's Connect
-<div align="center">
-
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/lephianh386ht)
-[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/lephianhdev)
-[![TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@lephianhdev)
-[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LePhiAnhDev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/phianhledev/)
-
-</div>
-
----
+<p align="center">
+  <img src="assets/hero.svg" width="900" height="282" alt="Le Phi Anh — Full-Stack Engineer, Blockchain Engineer, AI Engineer. Mammothon 2025 Champion. Ho Chi Minh City, Vietnam.">
+</p>
 
 <div align="center">
-
-### ⭐ Open for Opportunities
-
-**📍 Ho Chi Minh City, Vietnam**
-
+  <a href="https://lephianhdev.github.io/portfolio-page/"><img src="assets/btn-portfolio.svg" width="133" height="46" alt="Portfolio"></a>
+  <a href="mailto:lephianh2006ht@gmail.com"><img src="assets/btn-email.svg" width="111" height="46" alt="Email"></a>
 </div>
 
----
+<p align="center">
+  <a href="https://t.me/lephianh386ht"><img src="assets/soc-telegram.svg" width="54" height="46" alt="Telegram"></a>
+  <a href="https://x.com/lephianhdev"><img src="assets/soc-x.svg" width="54" height="46" alt="X"></a>
+  <a href="https://tiktok.com/@lephianhdev"><img src="assets/soc-tiktok.svg" width="54" height="46" alt="TikTok"></a>
+  <a href="https://www.linkedin.com/in/phianhledev/"><img src="assets/soc-linkedin.svg" width="54" height="46" alt="LinkedIn"></a>
+  <a href="https://github.com/LePhiAnhDev"><img src="assets/soc-github.svg" width="54" height="46" alt="GitHub"></a>
+  <a href="https://www.reddit.com/user/lephianh/"><img src="assets/soc-reddit.svg" width="54" height="46" alt="Reddit"></a>
+</p>
+
+<div align="center">
+  <img src="assets/sec-profile.svg" width="900" height="48" alt="Section 01 — Profile">
+</div>
+
+<p align="center">
+  <b>Engineer across the full stack, on-chain systems and applied AI.</b><br>
+  I build products end to end — from data model and smart contract to the interface people actually touch.<br>
+  One championship and five further placements across nine hackathons and olympiads.
+</p>
+
+<p align="center">
+  <img src="assets/focus.svg" width="900" height="122" alt="Focus areas. AI and Applied ML: computer vision, LLM apps and AI-assisted tooling. Blockchain and Web3: smart contracts, on-chain products and NFT systems. Full-Stack Product: end-to-end web platforms, from schema to interface. Systems and Automation: bots, desktop control and low-level Windows tooling.">
+</p>
+
+<div align="center">
+  <img src="assets/sec-stack.svg" width="900" height="48" alt="Section 02 — Stack">
+</div>
+
+<p align="center">
+  <img src="assets/stack.svg" width="900" height="318" alt="Stack. Frontend: TypeScript, React, Next.js, Tailwind CSS, shadcn/ui. Backend: Node.js, NestJS, Express, Gin, FastAPI. Data: PostgreSQL, MySQL, MariaDB, MongoDB, SQLite. Infra: Linux, Docker, Nginx, AWS, Vercel. Tools: Git, Postman, Jira.">
+</p>
+
+<div align="center">
+  <img src="assets/sec-awards.svg" width="900" height="48" alt="Section 03 — Awards">
+</div>
+
+<p align="center">
+  <img src="assets/awards.svg" width="900" height="462" alt="Competition record. Champion, Mammothon — Celestia Hackathon Vietnam, 2025. 3rd Place, Fintech Blockchain Hackathon, 2025. People's Choice Award, AI Innovation Challenge, 2025. Top 20 Finalist, Artificial Intelligence Olympiad, OAI Ho Chi Minh City, 2025. Semifinalist, Vietnam Blockchain Talent Search — VietChain Talents, 2025. Consolation Prize, Hackathon Pione Dream, 2025. Also competed at GDG on Campus Hackathon Vietnam, AI+ Unlimited Future and K-Tech AI Hackathon.">
+</p>
+
+<div align="center">
+  <img src="assets/sec-activity.svg" width="900" height="48" alt="Section 04 — Activity">
+</div>
+
+<!--
+  A streak card (streak-stats.demolab.com) used to sit here and was removed on
+  evidence, not taste. Its origin needs 13-22s to rebuild an uncached response;
+  GitHub's camo proxy gives up after ~4.4s and serves 504, so the first visitor
+  after any cache expiry gets a broken image. Measured against a freshly minted
+  camo hash: 504 on all three loads. The graph below passed the same cold test
+  at 200 in 0.66s. Re-run that check before adding any new external image here.
+-->
+
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=LePhiAnhDev&custom_title=Contribution%20Activity&bg_color=0A0A0F&color=EDEDF7&title_color=A78BFA&line=8B5CF6&point=EDEDF7&area=true&area_color=6366F1&border_color=232338&radius=14&height=320" width="900" height="240" alt="Daily contribution activity graph for the last 31 days">
+</p>
+
+<div align="center">
+  <img src="assets/footer.svg" width="900" height="142" alt="Open to opportunities. Available for full-time roles, freelance projects and collaboration. Ho Chi Minh City, Vietnam.">
+</div>
