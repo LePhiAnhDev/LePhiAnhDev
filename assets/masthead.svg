@@ -1,16 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="212" viewBox="0 0 900 212" fill="none" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="219" viewBox="0 0 900 219" fill="none" role="img">
 <style>
 @keyframes p{0%,100%{opacity:1}50%{opacity:.45}}
 .pulse{animation:p 3.2s ease-in-out infinite}
 @media (prefers-reduced-motion: reduce){.pulse{animation:none}}</style>
-<rect x="0.5" y="0.5" width="899" height="211" rx="6" fill="#0F0F11" stroke="#26262A" stroke-width="1"/>
+<rect x="0.5" y="0.5" width="899" height="218" rx="6" fill="#0F0F11" stroke="#26262A" stroke-width="1"/>
 <rect x="34" y="30" width="44" height="2" fill="#C8A063"/>
-<text x="34" y="72" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="30" fill="#F2F2F3" font-weight="700" letter-spacing="1.6">LE PHI ANH</text>
-<text x="34" y="96" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" fill="#A5A5AC" font-weight="500" letter-spacing="0.3">Full-Stack Engineer   ·   Blockchain Engineer   ·   AI Engineer</text>
-<text x="868.2" y="68" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" fill="#74747C" font-weight="600" letter-spacing="2.2" text-anchor="end">HO CHI MINH CITY, VIETNAM</text>
-<circle cx="668.32" cy="92" r="4" fill="#C8A063" class="pulse"/><text x="682.32" y="95.5" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" fill="#C8A063" font-weight="700" letter-spacing="2.2">OPEN TO OPPORTUNITIES</text>
-<line x1="34" y1="122.5" x2="866" y2="122.5" stroke="#26262A" stroke-width="1"/>
-<text x="34" y="152" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" fill="#F2F2F3" font-weight="600">Engineer across the full stack, on-chain systems and applied AI.</text>
-<text x="34" y="174" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#A5A5AC">I build products end to end — from data model and smart contract to the interface people actually touch.</text>
-<text x="34" y="196" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#A5A5AC">One championship and five further placements across nine hackathons and olympiads.</text>
+<text x="34" y="76" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="34" fill="#F2F2F3" font-weight="700" letter-spacing="1.6">LE PHI ANH</text>
+<text x="34" y="100" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#A5A5AC" font-weight="500" letter-spacing="0.3">Full-Stack Engineer   ·   Blockchain Engineer   ·   AI Engineer</text>
+<text x="868.2" y="70" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#949499" font-weight="600" letter-spacing="2.2" text-anchor="end">HO CHI MINH CITY, VIETNAM</text>
+<circle cx="661.34" cy="96" r="4" fill="#C8A063" class="pulse"/><text x="675.34" y="99.67" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#C8A063" font-weight="700" letter-spacing="2.2">OPEN TO OPPORTUNITIES</text>
+<line x1="34" y1="126.5" x2="866" y2="126.5" stroke="#26262A" stroke-width="1"/>
+<text x="34" y="158" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" fill="#F2F2F3" font-weight="600">Engineer across the full stack, on-chain systems and applied AI.</text>
+<text x="34" y="182.5" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" fill="#A5A5AC">I build products end to end — from data model and smart contract to the interface people actually touch.</text>
 </svg>

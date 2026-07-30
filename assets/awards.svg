@@ -1,30 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" fill="none" role="img">
-<rect x="0.5" y="0.5" width="899" height="319" rx="6" fill="#0F0F11" stroke="#26262A" stroke-width="1"/>
-<text x="34" y="40" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#A5A5AC" font-weight="700" letter-spacing="3.6">A W A R D S</text><text x="868.2" y="40" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="9.5" fill="#54545C" font-weight="700" letter-spacing="2.2" text-anchor="end">6 PLACEMENTS FROM 9 COMPETITIONS</text><line x1="34" y1="52.5" x2="866" y2="52.5" stroke="#26262A" stroke-width="1"/>
-<text x="34" y="86" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11.5" fill="#C8A063" font-weight="600" letter-spacing="0.6">2025</text>
-<text x="98" y="86" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#C8A063" font-weight="700" letter-spacing="1.5">CHAMPION</text>
-<text x="244" y="86" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" fill="#F2F2F3" font-weight="600">Mammothon — Celestia Hackathon Vietnam</text>
-<line x1="34" y1="98.5" x2="866" y2="98.5" stroke="#1C1C1F" stroke-width="1"/>
-<text x="34" y="120" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11.5" fill="#74747C" font-weight="600" letter-spacing="0.6">2025</text>
-<text x="98" y="120" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#A5A5AC" font-weight="700" letter-spacing="1.5">3RD PLACE</text>
-<text x="244" y="120" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" fill="#C9C9CF" font-weight="500">Fintech Blockchain Hackathon</text>
-<line x1="34" y1="132.5" x2="866" y2="132.5" stroke="#1C1C1F" stroke-width="1"/>
-<text x="34" y="154" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11.5" fill="#74747C" font-weight="600" letter-spacing="0.6">2025</text>
-<text x="98" y="154" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#A5A5AC" font-weight="700" letter-spacing="1.5">PEOPLE'S CHOICE</text>
-<text x="244" y="154" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" fill="#C9C9CF" font-weight="500">AI Innovation Challenge</text>
-<line x1="34" y1="166.5" x2="866" y2="166.5" stroke="#1C1C1F" stroke-width="1"/>
-<text x="34" y="188" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11.5" fill="#74747C" font-weight="600" letter-spacing="0.6">2025</text>
-<text x="98" y="188" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#A5A5AC" font-weight="700" letter-spacing="1.5">TOP 20 FINALIST</text>
-<text x="244" y="188" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" fill="#C9C9CF" font-weight="500">Artificial Intelligence Olympiad · OAI Ho Chi Minh City</text>
-<line x1="34" y1="200.5" x2="866" y2="200.5" stroke="#1C1C1F" stroke-width="1"/>
-<text x="34" y="222" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11.5" fill="#74747C" font-weight="600" letter-spacing="0.6">2025</text>
-<text x="98" y="222" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#A5A5AC" font-weight="700" letter-spacing="1.5">SEMIFINALIST</text>
-<text x="244" y="222" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" fill="#C9C9CF" font-weight="500">Vietnam Blockchain Talent Search · VietChain Talents</text>
-<line x1="34" y1="234.5" x2="866" y2="234.5" stroke="#1C1C1F" stroke-width="1"/>
-<text x="34" y="256" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11.5" fill="#74747C" font-weight="600" letter-spacing="0.6">2025</text>
-<text x="98" y="256" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#A5A5AC" font-weight="700" letter-spacing="1.5">CONSOLATION</text>
-<text x="244" y="256" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" fill="#C9C9CF" font-weight="500">Hackathon Pione Dream</text>
-<line x1="34" y1="272.5" x2="866" y2="272.5" stroke="#26262A" stroke-width="1"/>
-<text x="34" y="302" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="9.5" fill="#54545C" font-weight="700" letter-spacing="2.2">ALSO COMPETED</text>
-<text x="172" y="302" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11.5" fill="#74747C">GDG on Campus Hackathon Vietnam   ·   AI+ Unlimited Future   ·   K-Tech AI Hackathon</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="450" viewBox="0 0 900 450" fill="none" role="img">
+<rect x="0.5" y="0.5" width="899" height="449" rx="6" fill="#0F0F11" stroke="#26262A" stroke-width="1"/>
+<text x="34" y="40" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" fill="#A5A5AC" font-weight="700" letter-spacing="3.6">A W A R D S</text><line x1="34" y1="52.5" x2="866" y2="52.5" stroke="#26262A" stroke-width="1"/>
+<text x="34" y="118" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="46" fill="#C8A063" font-weight="700">1</text>
+<text x="34" y="140" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#949499" font-weight="700" letter-spacing="2.2">CHAMPIONSHIP</text>
+<text x="311.33" y="118" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="46" fill="#C8A063" font-weight="700">6</text>
+<text x="311.33" y="140" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#949499" font-weight="700" letter-spacing="2.2">PLACEMENTS</text>
+<text x="588.67" y="118" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="46" fill="#C8A063" font-weight="700">9</text>
+<text x="588.67" y="140" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#949499" font-weight="700" letter-spacing="2.2">COMPETITIONS ENTERED</text>
+<line x1="34" y1="162.5" x2="866" y2="162.5" stroke="#26262A" stroke-width="1"/>
+<text x="34" y="186" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" fill="#949499" font-weight="700" letter-spacing="1.6">2025</text>
+<rect x="24" y="196" width="852" height="32" rx="4" fill="#1C1916"/>
+<text x="34" y="216" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" fill="#C8A063" font-weight="700" letter-spacing="1.5">CHAMPION</text>
+<text x="202" y="216" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="15" fill="#F2F2F3" font-weight="600">Mammothon — Celestia Hackathon Vietnam</text>
+<text x="34" y="248" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" fill="#A5A5AC" font-weight="700" letter-spacing="1.5">3RD PLACE</text>
+<text x="202" y="248" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" fill="#C9C9CF" font-weight="500">Fintech Blockchain Hackathon</text>
+<text x="34" y="280" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" fill="#A5A5AC" font-weight="700" letter-spacing="1.5">PEOPLE'S CHOICE</text>
+<text x="202" y="280" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" fill="#C9C9CF" font-weight="500">AI Innovation Challenge</text>
+<text x="34" y="312" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" fill="#A5A5AC" font-weight="700" letter-spacing="1.5">TOP 20 FINALIST</text>
+<text x="202" y="312" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" fill="#C9C9CF" font-weight="500">Artificial Intelligence Olympiad · OAI Ho Chi Minh City</text>
+<text x="34" y="344" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" fill="#A5A5AC" font-weight="700" letter-spacing="1.5">SEMIFINALIST</text>
+<text x="202" y="344" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" fill="#C9C9CF" font-weight="500">Vietnam Blockchain Talent Search · VietChain Talents</text>
+<text x="34" y="376" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" fill="#A5A5AC" font-weight="700" letter-spacing="1.5">CONSOLATION</text>
+<text x="202" y="376" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" fill="#C9C9CF" font-weight="500">Hackathon Pione Dream</text>
+<line x1="34" y1="400.5" x2="866" y2="400.5" stroke="#26262A" stroke-width="1"/>
+<text x="34" y="428" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" fill="#7E7E87" font-weight="700" letter-spacing="2.2">ALSO COMPETED</text>
+<text x="182" y="428" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12" fill="#949499">GDG on Campus Hackathon Vietnam   ·   AI+ Unlimited Future   ·   K-Tech AI Hackathon</text>
 </svg>

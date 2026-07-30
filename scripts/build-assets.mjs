@@ -6,20 +6,53 @@
  *
  * Zero dependencies. Edit the data blocks below and re-run; never hand-patch SVG.
  *
- * DESIGN RULES — restraint is the brief, so these are hard limits, not taste:
+ * ── RESPONSIVE: ATTEMPTED, AND IT CANNOT WORK ON GITHUB ─────────────
+ * A narrow layout is fully implemented below (`stacked: true`) but is NOT
+ * emitted, because the mechanism that would select it does not survive
+ * GitHub's renderer. Do not re-enable it without re-reading this.
  *
- *   - No gradients, no glows, no blur, no texture, no shadows. Flat fills and
- *     1px hairlines only. Depth comes from value, not from effects.
- *   - One accent colour, in exactly two semantic roles: the availability marker
- *     and the Champion row. A third use would be decoration; keep it neutral.
- *   - Nothing is drawn that does not carry information. No corner ticks, no
- *     index numerals, no rank glyphs, no oversized ghost years.
- *   - Alignment does the work a gradient used to. The stack sits on a five
- *     column grid and the awards table on three, both computed here so the
- *     columns line up exactly all the way down the page.
+ * GitHub auto-links any standalone image, and it does so INSIDE <picture>:
  *
- * PLATFORM CONSTRAINTS — GitHub serves these from raw.githubusercontent.com
- * under `default-src 'none'; style-src 'unsafe-inline'; sandbox`:
+ *     <picture>
+ *       <source media="(max-width: 900px)" srcset="...-narrow.svg">
+ *       <a href="..."><img src="...svg"></a>     <-- GitHub inserts this <a>
+ *     </picture>
+ *
+ * Per spec <picture> only selects for an <img> that is its DIRECT child, so
+ * with the <a> in between every <source> is inert. Tested four markup shapes —
+ * title attribute, <div> instead of <p>, an author-supplied wrapping <a>, and a
+ * trailing sibling — and GitHub inserted the link in all four. (Theme switching
+ * still works because GitHub ships JS for it via <themed-picture>; that JS
+ * handles prefers-color-scheme, not width.)
+ *
+ * The consequence is real and worth knowing: the profile column is ~293px on a
+ * phone, so a 900px sheet renders its body type at roughly 4px. Measured
+ * columns on the live profile — note this is NOT linear, GitHub's sidebar takes
+ * width back partway up:
+ *
+ *     viewport  390   500   768   1012  1280  1512
+ *     column    293   403   383    563   831   847
+ *
+ * No single design width fixes this: the span from 293 to 847 is 2.9x. The only
+ * real remedy is native markdown for the body content, which trades the whole
+ * visual system for reflow. That is a product decision, not a build flag.
+ *
+ * ── DESIGN RULES ────────────────────────────────────────────────────
+ *   - No gradients, glows, blur, texture or shadows. Flat fills and 1px
+ *     hairlines only. Depth comes from value, not effects.
+ *   - One accent colour, in three semantic roles: the availability marker, the
+ *     key figures, and the Champion row. Never for decoration.
+ *   - Every text colour clears WCAG AA (4.5:1) on the surface it sits on. The
+ *     ramp below is tuned for that; `npm`-free audit lives in the README notes.
+ *   - Alignment does the work a gradient used to: the stack sits on a computed
+ *     column grid and the awards on two, so columns line up down the page.
+ *   - Monotony is a rhythm problem, not an effects problem. The page varies
+ *     density deliberately: airy masthead, very airy key figures at 46px, dense
+ *     awards table, medium stack grid.
+ *
+ * ── PLATFORM CONSTRAINTS ────────────────────────────────────────────
+ * GitHub serves these from raw.githubusercontent.com under
+ * `default-src 'none'; style-src 'unsafe-inline'; sandbox`:
  *
  *   1. No external font can load. Text renders in whatever the viewer has, so
  *      every string is anchored and every box is sized from the DejaVu Sans
@@ -29,7 +62,7 @@
  *      animation moves between two visible states: strip every <style> block
  *      and the static frame is still the finished design.
  *   3. Clicks inside an <img> do not navigate, so each link is its own file
- *      that README.md wraps in an <a>.
+ *      that README.md wraps in an <a> (with a title, for a hover tooltip).
  *   4. Plates are self-contained dark surfaces, not <picture> theme pairs.
  *      prefers-color-scheme follows the OS, not GitHub's theme toggle, so a
  *      light/dark pair breaks whenever a reader's two settings disagree.
@@ -44,27 +77,25 @@ const OUT = join(dirname(fileURLToPath(import.meta.url)), '..', 'assets')
 mkdirSync(OUT, { recursive: true })
 
 /* ══════════════════════════════════════════════════════════════════
-   TOKENS
+   TOKENS — the neutral ramp is tuned so every step clears AA on #0F0F11
    ══════════════════════════════════════════════════════════════════ */
 
 const C = {
   plate: '#0F0F11',
   plateAlt: '#141417',
+  lead: '#1C1916', // champion row: a flat 7% accent tint, not a gradient
   line: '#26262A',
   lineSoft: '#1C1C1F',
-  hi: '#F2F2F3',
-  text: '#C9C9CF',
-  mid: '#A5A5AC',
-  low: '#74747C',
-  dim: '#54545C',
-  accent: '#C8A063',
+  hi: '#F2F2F3', //  17.1 : 1
+  text: '#C9C9CF', //  11.6 : 1
+  mid: '#A5A5AC', //   7.8 : 1
+  low: '#949499', //   6.4 : 1
+  dim: '#7E7E87', //   4.9 : 1  — floor; nothing may be dimmer than this
+  accent: '#C8A063', //   7.9 : 1
 }
 
 const SANS = "'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif"
-
-const W = 900 // design width; GitHub's profile column is ~870px, so this eases down
-const PADX = 34 // plate gutter, shared by every section so columns align page-wide
-const R = 6 // plate corner radius — document, not app card
+const R = 6
 
 /* ══════════════════════════════════════════════════════════════════
    TEXT METRICS — DejaVu Sans advance widths as a fraction of the em
@@ -88,13 +119,25 @@ const ADV = {
   '%': 1.012, '*': 0.448, '=': 0.838, '_': 0.500,
 }
 const ADV_FALLBACK = 0.62
-const BOLD_FACTOR = 1.06
+const BOLD = 1.06
 
-/** Visible ink width. `tracking` is per-gap, so n-1 of them. */
 function textW (s, size, { bold = false, tracking = 0 } = {}) {
   let em = 0
   for (const ch of s) em += ADV[ch] ?? ADV_FALLBACK
-  return em * size * (bold ? BOLD_FACTOR : 1) + tracking * Math.max(0, [...s].length - 1)
+  return em * size * (bold ? BOLD : 1) + tracking * Math.max(0, [...s].length - 1)
+}
+
+/** Greedy word wrap against the metric table. Used by the narrow sheet. */
+function wrap (s, maxW, size, opts = {}) {
+  const words = s.split(' ')
+  const lines = []
+  let cur = ''
+  for (const w of words) {
+    const next = cur ? cur + ' ' + w : w
+    if (cur && textW(next, size, opts) > maxW) { lines.push(cur); cur = w } else cur = next
+  }
+  if (cur) lines.push(cur)
+  return lines
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -109,24 +152,17 @@ const esc = s => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
 /**
- * A single <text> run.
- *
- * SVG letter-spacing also adds a gap after the final glyph, so the advance the
- * anchor centres on is wider than the visible ink. Shift by half a gap (middle)
- * or a full gap (end) to land the *ink* where the caller asked.
+ * A single <text> run. SVG letter-spacing also adds a gap after the final
+ * glyph, so the advance the anchor centres on is wider than the visible ink;
+ * shift by half a gap (middle) or a full gap (end) to land the ink correctly.
  */
-function txt (s, {
-  x, y, size = 13, fill = C.mid, weight = 400, tracking = 0, anchor = 'start', cls,
-}) {
+function txt (s, { x, y, size = 13, fill = C.mid, weight = 400, tracking = 0, anchor = 'start', cls }) {
   let ax = x
   if (tracking) {
     if (anchor === 'middle') ax += tracking / 2
     else if (anchor === 'end') ax += tracking
   }
-  const a = [
-    `x="${n(ax)}"`, `y="${n(y)}"`,
-    `font-family="${SANS}"`, `font-size="${n(size)}"`, `fill="${fill}"`,
-  ]
+  const a = [`x="${n(ax)}"`, `y="${n(y)}"`, `font-family="${SANS}"`, `font-size="${n(size)}"`, `fill="${fill}"`]
   if (weight !== 400) a.push(`font-weight="${weight}"`)
   if (tracking) a.push(`letter-spacing="${n(tracking)}"`)
   if (anchor !== 'start') a.push(`text-anchor="${anchor}"`)
@@ -134,42 +170,17 @@ function txt (s, {
   return `<text ${a.join(' ')}>${esc(s)}</text>`
 }
 
-const rect = (x, y, w, h, { r = 0, fill = 'none', stroke, sw = 1 } = {}) => {
+const rect = (x, y, w, h, { r = 0, fill = 'none', stroke, sw = 1, cls } = {}) => {
   const a = [`x="${n(x)}"`, `y="${n(y)}"`, `width="${n(w)}"`, `height="${n(h)}"`]
   if (r) a.push(`rx="${n(r)}"`)
   a.push(`fill="${fill}"`)
   if (stroke) a.push(`stroke="${stroke}"`, `stroke-width="${n(sw)}"`)
+  if (cls) a.push(`class="${cls}"`)
   return `<rect ${a.join(' ')}/>`
 }
 
-/** Hairline on a half-pixel so it stays 1px crisp instead of smearing. */
 const hline = (x1, x2, y, stroke = C.lineSoft) =>
   `<line x1="${n(x1)}" y1="${n(y) + 0.5}" x2="${n(x2)}" y2="${n(y) + 0.5}" stroke="${stroke}" stroke-width="1"/>`
-
-/** Plate: flat fill, 1px border drawn inside the box so nothing clips. */
-const plate = (h, fill = C.plate) =>
-  rect(0.5, 0.5, W - 1, h - 1, { r: R, fill, stroke: C.line })
-
-/**
- * Section label with a full-width rule beneath it, and an optional right-hand
- * meta figure. The meta is there to quantify the section at a glance, so only
- * pass one when the number actually tells the reader something.
- */
-const sectionHead = (label, baseline, meta) =>
-  txt(label, { x: PADX, y: baseline, size: 10.5, fill: C.mid, weight: 700, tracking: 3.6 }) +
-  (meta ? txt(meta, { x: W - PADX, y: baseline, size: 9.5, fill: C.dim, weight: 700, tracking: 2.2, anchor: 'end' }) : '') +
-  hline(PADX, W - PADX, baseline + 12, C.line)
-
-/**
- * Availability marker. The dot's own opacity is 1, so with animation disabled
- * it is simply a solid dot — the still frame is complete.
- */
-const statusMark = (x, cy, label, size = 10, tracking = 2.2) =>
-  `<circle cx="${n(x + 4)}" cy="${n(cy)}" r="4" fill="${C.accent}" class="pulse"/>` +
-  txt(label, { x: x + 18, y: cy + size * 0.35, size, fill: C.accent, weight: 700, tracking })
-
-const statusW = (label, size = 10, tracking = 2.2) =>
-  18 + textW(label, size, { bold: true, tracking })
 
 const PULSE = `
 @keyframes p{0%,100%{opacity:1}50%{opacity:.45}}
@@ -182,7 +193,7 @@ function icon (slug, x, y, size, fill) {
   return `<g transform="translate(${n(x)} ${n(y)}) scale(${n(size / 24, 5)})"><path d="${d}" fill="${fill}"/></g>`
 }
 
-/** The only two drawn marks in the whole file, both on a 24x24 grid. */
+/** The only two drawn marks in the file, both on a 24x24 grid. */
 const MARK = {
   arrow: 'M7.6 16.4 L16.4 7.6 M9.4 7.6 H16.4 V14.6',
   envelope: 'M3.6 6.4 H20.4 V17.6 H3.6 Z M3.6 6.9 L12 13.4 L20.4 6.9',
@@ -205,15 +216,16 @@ const warn = m => { warnings++; console.warn(`  ! ${m}`) }
    ══════════════════════════════════════════════════════════════════ */
 
 const NAME = 'LE PHI ANH'
-const ROLES = 'Full-Stack Engineer   ·   Blockchain Engineer   ·   AI Engineer'
+const ROLES_WIDE = 'Full-Stack Engineer   ·   Blockchain Engineer   ·   AI Engineer'
+const ROLES_NARROW = 'Full-Stack · Blockchain · AI Engineer'
 const CITY = 'HO CHI MINH CITY, VIETNAM'
 const STATUS = 'OPEN TO OPPORTUNITIES'
 const EMAIL = 'lephianh2006ht@gmail.com'
+const AVAILABILITY = 'Available for full-time roles, freelance projects and collaboration.'
 
 const PROSE = [
-  ['Engineer across the full stack, on-chain systems and applied AI.', 13.5, C.hi, 600],
-  ['I build products end to end — from data model and smart contract to the interface people actually touch.', 13, C.mid, 400],
-  ['One championship and five further placements across nine hackathons and olympiads.', 13, C.mid, 400],
+  'Engineer across the full stack, on-chain systems and applied AI.',
+  'I build products end to end — from data model and smart contract to the interface people actually touch.',
 ]
 
 const STACK = [
@@ -224,7 +236,7 @@ const STACK = [
   ['TOOLS', ['Git', 'Postman', 'Jira']],
 ]
 
-/** `lead: true` marks the single row that earns the accent colour. */
+/** `lead: true` marks the single row that earns the accent. */
 const AWARDS = [
   { year: '2025', result: 'CHAMPION', event: 'Mammothon — Celestia Hackathon Vietnam', lead: true },
   { year: '2025', result: '3RD PLACE', event: 'Fintech Blockchain Hackathon' },
@@ -233,66 +245,313 @@ const AWARDS = [
   { year: '2025', result: 'SEMIFINALIST', event: 'Vietnam Blockchain Talent Search · VietChain Talents' },
   { year: '2025', result: 'CONSOLATION', event: 'Hackathon Pione Dream' },
 ]
-
 const ALSO = ['GDG on Campus Hackathon Vietnam', 'AI+ Unlimited Future', 'K-Tech AI Hackathon']
 
-const SOCIALS = ['telegram', 'x', 'tiktok', 'linkedin', 'github', 'reddit']
+/** Derived, so they can never drift from the table above. */
+const FIGURES = [
+  [String(AWARDS.filter(a => a.lead).length), 'CHAMPIONSHIP'],
+  [String(AWARDS.length), 'PLACEMENTS'],
+  [String(AWARDS.length + ALSO.length), 'COMPETITIONS ENTERED'],
+]
+
+const SOCIALS = [
+  ['telegram', 'Telegram'], ['x', 'X'], ['tiktok', 'TikTok'],
+  ['linkedin', 'LinkedIn'], ['github', 'GitHub'], ['reddit', 'Reddit'],
+]
 
 /* ══════════════════════════════════════════════════════════════════
-   MASTHEAD — name, roles, location, status, then the positioning copy
+   LAYOUTS
    ══════════════════════════════════════════════════════════════════ */
 
-function buildMasthead () {
-  const H = 212
+const LAYOUTS = [
+  {
+    key: 'wide', W: 900, PADX: 34, suffix: '', stacked: false,
+    s: {
+      name: 34, roles: 13, meta: 10.5, prose: 14, sec: 11, cat: 10.5, item: 13.5,
+      fig: 46, figLabel: 10.5, year: 11, result: 11, event: 14, eventLead: 15,
+      also: 12, body: 13.5,
+    },
+  },
+  {
+    key: 'narrow', W: 380, PADX: 20, suffix: '-narrow', stacked: true,
+    s: {
+      name: 25, roles: 12, meta: 11, prose: 13, sec: 11, cat: 11, item: 12.5,
+      fig: 30, figLabel: 11, year: 11, result: 11, event: 12.5, eventLead: 13.5,
+      also: 12, body: 12.5,
+    },
+  },
+]
+
+/* shared fragments, parameterised by layout ------------------------- */
+
+const plate = (L, h, fill = C.plate) => rect(0.5, 0.5, L.W - 1, h - 1, { r: R, fill, stroke: C.line })
+
+const sectionHead = (L, label, baseline) =>
+  txt(label, { x: L.PADX, y: baseline, size: L.s.sec, fill: C.mid, weight: 700, tracking: 3.6 }) +
+  hline(L.PADX, L.W - L.PADX, baseline + 12, C.line)
+
+const statusMark = (L, x, cy, size = L.s.meta) =>
+  `<circle cx="${n(x + 4)}" cy="${n(cy)}" r="4" fill="${C.accent}" class="pulse"/>` +
+  txt(STATUS, { x: x + 18, y: cy + size * 0.35, size, fill: C.accent, weight: 700, tracking: 2.2 })
+
+const statusW = (L, size = L.s.meta) => 18 + textW(STATUS, size, { bold: true, tracking: 2.2 })
+
+/* ══════════════════════════════════════════════════════════════════
+   MASTHEAD
+   ══════════════════════════════════════════════════════════════════ */
+
+function buildMasthead (L) {
+  const { W, PADX, s } = L
   const right = W - PADX
-  const parts = [plate(H)]
+  const inner = W - PADX * 2
+  const parts = []
+  let y
 
-  // Letterhead rule: the one graphic flourish anywhere on the page.
-  parts.push(rect(PADX, 30, 44, 2, { fill: C.accent }))
-
-  parts.push(
-    txt(NAME, { x: PADX, y: 72, size: 30, fill: C.hi, weight: 700, tracking: 1.6 }),
-    txt(ROLES, { x: PADX, y: 96, size: 12.5, fill: C.mid, weight: 500, tracking: 0.3 }),
-    txt(CITY, { x: right, y: 68, size: 10, fill: C.low, weight: 600, tracking: 2.2, anchor: 'end' }),
-    statusMark(right - statusW(STATUS), 92, STATUS),
-    hline(PADX, right, 122, C.line),
-  )
-
-  let y = 152
-  for (const [line, size, fill, weight] of PROSE) {
-    parts.push(txt(line, { x: PADX, y, size, fill, weight }))
-    const w = textW(line, size, { bold: weight >= 600 })
-    if (PADX + w > right) warn(`masthead prose overflows by ${n(PADX + w - right)}px: "${line.slice(0, 42)}…"`)
-    y += 22
+  if (!L.stacked) {
+    parts.push(rect(PADX, 30, 44, 2, { fill: C.accent }))
+    parts.push(
+      txt(NAME, { x: PADX, y: 76, size: s.name, fill: C.hi, weight: 700, tracking: 1.6 }),
+      txt(ROLES_WIDE, { x: PADX, y: 100, size: s.roles, fill: C.mid, weight: 500, tracking: 0.3 }),
+      txt(CITY, { x: right, y: 70, size: s.meta, fill: C.low, weight: 600, tracking: 2.2, anchor: 'end' }),
+      statusMark(L, right - statusW(L), 96),
+      hline(PADX, right, 126, C.line),
+    )
+    y = 158
+    const nameEnd = PADX + textW(NAME, s.name, { bold: true, tracking: 1.6 })
+    const cityStart = right - textW(CITY, s.meta, { bold: true, tracking: 2.2 })
+    if (nameEnd > cityStart - 24) warn(`${L.key} masthead row 1 collides by ${n(nameEnd - cityStart + 24)}px`)
+    const rolesEnd = PADX + textW(ROLES_WIDE, s.roles)
+    if (rolesEnd > right - statusW(L) - 24) warn(`${L.key} masthead row 2 collides by ${n(rolesEnd - (right - statusW(L)) + 24)}px`)
+  } else {
+    parts.push(rect(PADX, 22, 36, 2, { fill: C.accent }))
+    parts.push(
+      txt(NAME, { x: PADX, y: 62, size: s.name, fill: C.hi, weight: 700, tracking: 1.2 }),
+      txt(ROLES_NARROW, { x: PADX, y: 84, size: s.roles, fill: C.mid, weight: 500 }),
+      statusMark(L, PADX, 110),
+      txt(CITY, { x: PADX, y: 132, size: s.meta, fill: C.low, weight: 600, tracking: 1.8 }),
+      hline(PADX, right, 150, C.line),
+    )
+    y = 176
   }
 
-  // The two header columns must not collide even at the widest fallback font.
-  const nameEnd = PADX + textW(NAME, 30, { bold: true, tracking: 1.6 })
-  const cityStart = right - textW(CITY, 10, { bold: true, tracking: 2.2 })
-  const statusStart = right - statusW(STATUS)
-  const rolesEnd = PADX + textW(ROLES, 12.5)
-  if (nameEnd > cityStart - 24) warn(`masthead row 1 collides by ${n(nameEnd - cityStart + 24)}px`)
-  if (rolesEnd > statusStart - 24) warn(`masthead row 2 collides by ${n(rolesEnd - statusStart + 24)}px`)
+  // Prose wraps to the sheet, so the measure stays readable at either width.
+  for (let i = 0; i < PROSE.length; i++) {
+    const size = i === 0 ? s.prose : s.body
+    const fill = i === 0 ? C.hi : C.mid
+    const weight = i === 0 ? 600 : 400
+    for (const line of wrap(PROSE[i], inner, size, { bold: weight >= 600 })) {
+      parts.push(txt(line, { x: PADX, y, size, fill, weight }))
+      y += size + 7.5
+    }
+    y += 3
+  }
 
-  emit('masthead.svg', doc(W, H, parts.join('\n'), PULSE))
+  const H = Math.round(y + 12)
+  emit(`masthead${L.suffix}.svg`, doc(W, H, [plate(L, H), ...parts].join('\n'), PULSE))
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   LINK BUTTONS — separate files so README.md can wrap each in an <a>
+   STACK
+   ══════════════════════════════════════════════════════════════════ */
+
+function buildStack (L) {
+  const { W, PADX, s } = L
+  const right = W - PADX
+  const parts = [sectionHead(L, 'S T A C K', 40)]
+  let y
+
+  if (!L.stacked) {
+    const itemsX = PADX + 108
+    const colW = (right - itemsX) / 5
+    const rowH = 40
+    const top = 64
+    STACK.forEach(([label, items], ri) => {
+      const rTop = top + ri * rowH
+      const base = rTop + 25
+      if (ri > 0) parts.push(hline(PADX, right, rTop, C.lineSoft))
+      parts.push(txt(label, { x: PADX, y: base, size: s.cat, fill: C.dim, weight: 700, tracking: 2.2 }))
+      items.forEach((item, ci) => {
+        parts.push(txt(item, { x: itemsX + ci * colW, y: base, size: s.item, fill: C.text, weight: 500 }))
+        const w = textW(item, s.item)
+        if (w > colW - 12) warn(`stack item "${item}" is ${n(w)}px inside a ${n(colW)}px column`)
+      })
+    })
+    y = top + STACK.length * rowH + 20
+  } else {
+    y = 78
+    STACK.forEach(([label, items], ri) => {
+      if (ri > 0) { parts.push(hline(PADX, right, y - 20, C.lineSoft)) }
+      parts.push(txt(label, { x: PADX, y, size: s.cat, fill: C.dim, weight: 700, tracking: 2.2 }))
+      y += 19
+      for (const line of wrap(items.join('  ·  '), W - PADX * 2, s.item)) {
+        parts.push(txt(line, { x: PADX, y, size: s.item, fill: C.text, weight: 500 }))
+        y += s.item + 6
+      }
+      y += 15
+    })
+    y += 2
+  }
+
+  const H = Math.round(y)
+  emit(`stack${L.suffix}.svg`, doc(W, H, [plate(L, H), ...parts].join('\n')))
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   AWARDS — key figures for scale contrast, then a table grouped by year
+   ══════════════════════════════════════════════════════════════════ */
+
+function buildAwards (L) {
+  const { W, PADX, s } = L
+  const right = W - PADX
+  const parts = [sectionHead(L, 'A W A R D S', 40)]
+
+  /* key figures — the page's one moment of large type */
+  let y
+  if (!L.stacked) {
+    const colW = (right - PADX) / FIGURES.length
+    FIGURES.forEach(([value, label], i) => {
+      const x = PADX + i * colW
+      parts.push(
+        txt(value, { x, y: 118, size: s.fig, fill: C.accent, weight: 700 }),
+        txt(label, { x, y: 140, size: s.figLabel, fill: C.low, weight: 700, tracking: 2.2 }),
+      )
+      const lw = textW(label, s.figLabel, { bold: true, tracking: 2.2 })
+      if (lw > colW - 16) warn(`figure label "${label}" is ${n(lw)}px in a ${n(colW)}px column`)
+    })
+    parts.push(hline(PADX, right, 162, C.line))
+    y = 186
+  } else {
+    const colW = (right - PADX) / FIGURES.length
+    FIGURES.forEach(([value, label], i) => {
+      const x = PADX + i * colW
+      parts.push(txt(value, { x, y: 100, size: s.fig, fill: C.accent, weight: 700 }))
+      // Tighter tracking than the wide sheet: at 380px the columns are only
+      // ~113px and "CHAMPIONSHIP" does not fit at the wide sheet's 2.2.
+      const short = label.split(' ')[0]
+      parts.push(txt(short, { x, y: 117, size: s.figLabel, fill: C.low, weight: 700, tracking: 0.8 }))
+      const lw = textW(short, s.figLabel, { bold: true, tracking: 0.8 })
+      if (lw > colW - 8) warn(`narrow figure label "${short}" is ${n(lw)}px in a ${n(colW)}px column`)
+    })
+    parts.push(hline(PADX, right, 136, C.line))
+    y = 158
+  }
+
+  /* table, grouped by year so an identical year is printed once, not per row */
+  const years = [...new Set(AWARDS.map(a => a.year))]
+  for (const year of years) {
+    parts.push(txt(year, { x: PADX, y, size: s.year, fill: C.low, weight: 700, tracking: 1.6 }))
+    // Clear the year baseline before the first row: a lead row paints a tinted
+    // block starting 20px (wide) / 15px (narrow) above its own baseline, which
+    // at a 14px step used to sit on top of this label and clip it.
+    y += L.stacked ? 26 : 30
+
+    for (const a of AWARDS.filter(x => x.year === year)) {
+      if (!L.stacked) {
+        const rowH = 32
+        if (a.lead) parts.push(rect(PADX - 10, y - 20, right - PADX + 20, rowH, { r: 4, fill: C.lead }))
+        const eventX = PADX + 168
+        parts.push(
+          txt(a.result, { x: PADX, y, size: s.result, fill: a.lead ? C.accent : C.mid, weight: 700, tracking: 1.5 }),
+          txt(a.event, { x: eventX, y, size: a.lead ? s.eventLead : s.event, fill: a.lead ? C.hi : C.text, weight: a.lead ? 600 : 500 }),
+        )
+        const rw = PADX + textW(a.result, s.result, { bold: true, tracking: 1.5 })
+        if (rw > eventX - 14) warn(`award result "${a.result}" overruns its column by ${n(rw - eventX + 14)}px`)
+        const ew = eventX + textW(a.event, a.lead ? s.eventLead : s.event, { bold: a.lead })
+        if (ew > right) warn(`award event "${a.event}" overflows by ${n(ew - right)}px`)
+        y += rowH
+      } else {
+        const lines = wrap(a.event, W - PADX * 2, a.lead ? s.eventLead : s.event, { bold: a.lead })
+        const blockH = 18 + lines.length * (s.event + 5) + 11
+        if (a.lead) parts.push(rect(PADX - 8, y - 15, right - PADX + 16, blockH, { r: 4, fill: C.lead }))
+        parts.push(txt(a.result, { x: PADX, y, size: s.result, fill: a.lead ? C.accent : C.mid, weight: 700, tracking: 1.5 }))
+        y += 18
+        for (const line of lines) {
+          parts.push(txt(line, { x: PADX, y, size: a.lead ? s.eventLead : s.event, fill: a.lead ? C.hi : C.text, weight: a.lead ? 600 : 500 }))
+          y += s.event + 5
+        }
+        y += 11
+      }
+    }
+  }
+
+  /* also competed */
+  y += L.stacked ? 2 : 6
+  parts.push(hline(PADX, right, y - 14, C.line))
+  y += 14
+  parts.push(txt('ALSO COMPETED', { x: PADX, y, size: s.cat, fill: C.dim, weight: 700, tracking: 2.2 }))
+
+  if (!L.stacked) {
+    const alsoX = PADX + 148
+    const alsoText = ALSO.join('   ·   ')
+    parts.push(txt(alsoText, { x: alsoX, y, size: s.also, fill: C.low }))
+    const labelEnd = PADX + textW('ALSO COMPETED', s.cat, { bold: true, tracking: 2.2 })
+    if (labelEnd > alsoX - 20) warn(`"ALSO COMPETED" label crowds its list by ${n(labelEnd - alsoX + 20)}px`)
+    const aw = alsoX + textW(alsoText, s.also)
+    if (aw > right) warn(`"also competed" row overflows by ${n(aw - right)}px`)
+    y += 22
+  } else {
+    y += 18
+    for (const line of wrap(ALSO.join('  ·  '), W - PADX * 2, s.also)) {
+      parts.push(txt(line, { x: PADX, y, size: s.also, fill: C.low }))
+      y += s.also + 5
+    }
+    y += 6
+  }
+
+  const H = Math.round(y)
+  emit(`awards${L.suffix}.svg`, doc(W, H, [plate(L, H), ...parts].join('\n')))
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   FOOTER — no longer repeats the masthead's status pill or city
+   ══════════════════════════════════════════════════════════════════ */
+
+function buildFooter (L) {
+  const { W, PADX, s } = L
+  const right = W - PADX
+  const parts = []
+  let H
+
+  if (!L.stacked) {
+    H = 86
+    parts.push(
+      txt(AVAILABILITY, { x: PADX, y: 51, size: s.body, fill: C.mid }),
+      txt(EMAIL, { x: right, y: 51, size: s.body, fill: C.text, anchor: 'end' }),
+    )
+    const l = PADX + textW(AVAILABILITY, s.body)
+    const r = right - textW(EMAIL, s.body)
+    if (l > r - 24) warn(`footer columns collide by ${n(l - r + 24)}px`)
+  } else {
+    let y = 40
+    for (const line of wrap(AVAILABILITY, W - PADX * 2, s.body)) {
+      parts.push(txt(line, { x: PADX, y, size: s.body, fill: C.mid }))
+      y += s.body + 6
+    }
+    y += 8
+    parts.push(txt(EMAIL, { x: PADX, y, size: s.body, fill: C.text }))
+    H = Math.round(y + 22)
+  }
+
+  emit(`footer${L.suffix}.svg`, doc(W, H, [plate(L, H), ...parts].join('\n')))
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   LINK BUTTONS — one size; they are already touch-sized on a phone and
+   must not scale with the sheets, or they would shrink below 24px
    ══════════════════════════════════════════════════════════════════ */
 
 const GUTTER = 4 // transparent margin; GitHub's own inter-image whitespace adds ~4px
 
 function buildLabelButton (file, label, glyph) {
   const H = 38
-  const size = 12
+  const size = 12.5
   const tw = textW(label, size, { bold: true, tracking: 0.3 })
   const inner = 15 + 15 + 9 + tw + 16
   const cy = H / 2
   const body = [
     rect(GUTTER + 0.5, 0.5, inner - 1, H - 1, { r: R, fill: C.plateAlt, stroke: C.line }),
     mark(glyph, GUTTER + 15, cy - 7.5, 15, C.mid),
-    txt(label, { x: GUTTER + 15 + 15 + 9, y: cy + 4.2, size, fill: C.text, weight: 600, tracking: 0.3 }),
+    txt(label, { x: GUTTER + 15 + 15 + 9, y: cy + 4.4, size, fill: C.text, weight: 600, tracking: 0.3 }),
   ].join('')
   const w = Math.ceil(inner + GUTTER * 2)
   emit(file, doc(w, H, body))
@@ -311,126 +570,31 @@ function buildSocialButton (slug) {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   STACK — five fixed columns so every row aligns down the page
-   ══════════════════════════════════════════════════════════════════ */
-
-function buildStack () {
-  const itemsX = PADX + 108
-  const cols = 5
-  const colW = (W - PADX - itemsX) / cols
-  const rowH = 38
-  const top = 64
-  const H = top + STACK.length * rowH + 20
-
-  const parts = [plate(H), sectionHead('S T A C K', 40)]
-
-  STACK.forEach(([label, items], ri) => {
-    const rTop = top + ri * rowH
-    const base = rTop + 24
-    if (ri > 0) parts.push(hline(PADX, W - PADX, rTop, C.lineSoft))
-    parts.push(txt(label, { x: PADX, y: base, size: 9.5, fill: C.dim, weight: 700, tracking: 2.2 }))
-    items.forEach((item, ci) => {
-      parts.push(txt(item, { x: itemsX + ci * colW, y: base, size: 12.5, fill: C.text, weight: 500 }))
-      const w = textW(item, 12.5)
-      if (w > colW - 12) warn(`stack item "${item}" is ${n(w)}px inside a ${n(colW)}px column`)
-    })
-  })
-
-  emit('stack.svg', doc(W, H, parts.join('\n')))
-}
-
-/* ══════════════════════════════════════════════════════════════════
-   AWARDS — a real three-column table, year first
-   ══════════════════════════════════════════════════════════════════ */
-
-function buildAwards () {
-  const resultX = PADX + 64
-  const eventX = PADX + 210
-  const right = W - PADX
-  const rowH = 34
-  const top = 64
-  const tableEnd = top + AWARDS.length * rowH
-  const H = tableEnd + 52
-
-  const placements = AWARDS.length
-  const total = placements + ALSO.length
-  const parts = [
-    plate(H),
-    sectionHead('A W A R D S', 40, `${placements} PLACEMENTS FROM ${total} COMPETITIONS`),
-  ]
-
-  AWARDS.forEach((a, i) => {
-    const rTop = top + i * rowH
-    const base = rTop + 22
-    if (i > 0) parts.push(hline(PADX, right, rTop, C.lineSoft))
-
-    const eventSize = a.lead ? 14 : 13.5
-    parts.push(
-      txt(a.year, { x: PADX, y: base, size: 11.5, fill: a.lead ? C.accent : C.low, weight: 600, tracking: 0.6 }),
-      txt(a.result, { x: resultX, y: base, size: 10.5, fill: a.lead ? C.accent : C.mid, weight: 700, tracking: 1.5 }),
-      txt(a.event, { x: eventX, y: base, size: eventSize, fill: a.lead ? C.hi : C.text, weight: a.lead ? 600 : 500 }),
-    )
-
-    const rw = textW(a.result, 10.5, { bold: true, tracking: 1.5 })
-    if (resultX + rw > eventX - 14) warn(`award result "${a.result}" overruns its column by ${n(resultX + rw - eventX + 14)}px`)
-    const ew = textW(a.event, eventSize, { bold: a.lead })
-    if (eventX + ew > right) warn(`award event "${a.event}" overflows by ${n(eventX + ew - right)}px`)
-  })
-
-  parts.push(hline(PADX, right, tableEnd + 4, C.line))
-
-  // "ALSO COMPETED" is a wide label, so it needs a deeper indent than the stack
-  // gutter or the label and the list read as one run of text.
-  const alsoX = PADX + 138
-  const alsoText = ALSO.join('   ·   ')
-  parts.push(
-    txt('ALSO COMPETED', { x: PADX, y: tableEnd + 34, size: 9.5, fill: C.dim, weight: 700, tracking: 2.2 }),
-    txt(alsoText, { x: alsoX, y: tableEnd + 34, size: 11.5, fill: C.low }),
-  )
-  const labelEnd = PADX + textW('ALSO COMPETED', 9.5, { bold: true, tracking: 2.2 })
-  if (labelEnd > alsoX - 20) warn(`"ALSO COMPETED" label crowds its list by ${n(labelEnd - alsoX + 20)}px`)
-  const aw = alsoX + textW(alsoText, 11.5)
-  if (aw > right) warn(`"also competed" row overflows by ${n(aw - right)}px`)
-
-  emit('awards.svg', doc(W, H, parts.join('\n')))
-}
-
-/* ══════════════════════════════════════════════════════════════════
-   FOOTER — mirrors the masthead's two-column split
-   ══════════════════════════════════════════════════════════════════ */
-
-function buildFooter () {
-  const H = 104
-  const right = W - PADX
-  const body = [
-    plate(H),
-    statusMark(PADX, 44, STATUS),
-    txt('Available for full-time roles, freelance projects and collaboration.',
-      { x: PADX, y: 74, size: 12.5, fill: C.mid }),
-    txt(CITY, { x: right, y: 47, size: 10, fill: C.low, weight: 600, tracking: 2.2, anchor: 'end' }),
-    txt(EMAIL, { x: right, y: 74, size: 12, fill: C.text, anchor: 'end' }),
-  ].join('\n')
-  emit('footer.svg', doc(W, H, body, PULSE))
-}
-
-/* ══════════════════════════════════════════════════════════════════
    RUN
    ══════════════════════════════════════════════════════════════════ */
 
-buildMasthead()
+// Narrow sheets stay unemitted — see the note at the top of this file. The
+// layout code is kept because it is correct and ready the moment GitHub stops
+// injecting an <a> inside <picture>, or the content moves to native markdown.
+const EMIT_NARROW = false
+
+for (const L of LAYOUTS) {
+  if (L.stacked && !EMIT_NARROW) continue
+  buildMasthead(L)
+  buildStack(L)
+  buildAwards(L)
+  buildFooter(L)
+}
 const btn = {
   portfolio: buildLabelButton('btn-portfolio.svg', 'Portfolio', MARK.arrow),
   email: buildLabelButton('btn-email.svg', 'Email', MARK.envelope),
 }
-for (const s of SOCIALS) btn[s] = buildSocialButton(s)
-buildStack()
-buildAwards()
-buildFooter()
+for (const [slug] of SOCIALS) btn[slug] = buildSocialButton(slug)
 
 const total = written.reduce((a, [, b]) => a + b, 0)
 console.log(`${written.length} assets → ${OUT}`)
-for (const [name, size] of written) console.log(`  ${name.padEnd(20)} ${String(Math.round(size / 1024)).padStart(3)} KB`)
-console.log(`  ${'total'.padEnd(20)} ${String(Math.round(total / 1024)).padStart(3)} KB`)
+for (const [name, size] of written) console.log(`  ${name.padEnd(22)} ${String(Math.round(size / 1024)).padStart(3)} KB`)
+console.log(`  ${'total'.padEnd(22)} ${String(Math.round(total / 1024)).padStart(3)} KB`)
 console.log(`\nlayout warnings: ${warnings}`)
-console.log('img dimensions for README:')
+console.log('button dimensions for README:')
 for (const [k, v] of Object.entries(btn)) console.log(`  ${k.padEnd(11)} width="${v.w}" height="${v.h}"`)

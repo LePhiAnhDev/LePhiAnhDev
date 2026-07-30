@@ -1,11 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="104" viewBox="0 0 900 104" fill="none" role="img">
-<style>
-@keyframes p{0%,100%{opacity:1}50%{opacity:.45}}
-.pulse{animation:p 3.2s ease-in-out infinite}
-@media (prefers-reduced-motion: reduce){.pulse{animation:none}}</style>
-<rect x="0.5" y="0.5" width="899" height="103" rx="6" fill="#0F0F11" stroke="#26262A" stroke-width="1"/>
-<circle cx="38" cy="44" r="4" fill="#C8A063" class="pulse"/><text x="52" y="47.5" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" fill="#C8A063" font-weight="700" letter-spacing="2.2">OPEN TO OPPORTUNITIES</text>
-<text x="34" y="74" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" fill="#A5A5AC">Available for full-time roles, freelance projects and collaboration.</text>
-<text x="868.2" y="47" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" fill="#74747C" font-weight="600" letter-spacing="2.2" text-anchor="end">HO CHI MINH CITY, VIETNAM</text>
-<text x="866" y="74" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12" fill="#C9C9CF" text-anchor="end">lephianh2006ht@gmail.com</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="86" viewBox="0 0 900 86" fill="none" role="img">
+<rect x="0.5" y="0.5" width="899" height="85" rx="6" fill="#0F0F11" stroke="#26262A" stroke-width="1"/>
+<text x="34" y="51" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" fill="#A5A5AC">Available for full-time roles, freelance projects and collaboration.</text>
+<text x="866" y="51" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" fill="#C9C9CF" text-anchor="end">lephianh2006ht@gmail.com</text>
 </svg>
