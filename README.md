@@ -2,7 +2,68 @@
 
 # 👋 Hey, I'm **Le Phi Anh**
 
-### Full-Stack Engineer | Blockchain Engineer | AI Engineer
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=900&color=2F81F7&center=true&vCenter=true&width=560&height=46&lines=Full-Stack+Engineer;Blockchain+Engineer;AI+Engineer" alt="Full-Stack Engineer | Blockchain Engineer | AI Engineer" />
+
+</div>
+
+---
+
+## 🏆 Achievements
+
+<table align="center" width="100%">
+    <tr>
+        <td align="center" width="70"><h3>🥇</h3></td>
+        <td width="165">
+            <img src="https://img.shields.io/badge/Champion-FFD700?style=for-the-badge&labelColor=1A1A1A" alt="Champion" />
+        </td>
+        <td><b>Mammothon</b> — Celestia Hackathon Vietnam</td>
+        <td align="right" width="80"><code>2025</code></td>
+    </tr>
+    <tr>
+        <td align="center" width="70"><h3>🥉</h3></td>
+        <td width="165">
+            <img src="https://img.shields.io/badge/3rd%20Place-CD7F32?style=for-the-badge&labelColor=1A1A1A" alt="3rd Place" />
+        </td>
+        <td><b>Fintech Blockchain Hackathon</b></td>
+        <td align="right" width="80"><code>2025</code></td>
+    </tr>
+    <tr>
+        <td align="center" width="70"><h3>⭐</h3></td>
+        <td width="165">
+            <img src="https://img.shields.io/badge/People's%20Choice-9C27B0?style=for-the-badge&labelColor=1A1A1A" alt="People's Choice Award" />
+        </td>
+        <td><b>AI Innovation Challenge</b></td>
+        <td align="right" width="80"><code>2025</code></td>
+    </tr>
+    <tr>
+        <td align="center" width="70"><h3>🎖️</h3></td>
+        <td width="165">
+            <img src="https://img.shields.io/badge/Top%2020%20Finalist-1565C0?style=for-the-badge&labelColor=1A1A1A" alt="Top 20 Finalist" />
+        </td>
+        <td><b>Artificial Intelligence Olympiad</b> — OAI Ho Chi Minh City</td>
+        <td align="right" width="80"><code>2025</code></td>
+    </tr>
+    <tr>
+        <td align="center" width="70"><h3>🎯</h3></td>
+        <td width="165">
+            <img src="https://img.shields.io/badge/Semifinalist-00796B?style=for-the-badge&labelColor=1A1A1A" alt="Semifinalist" />
+        </td>
+        <td><b>Vietnam Blockchain Talent Search</b> — VietChain Talents</td>
+        <td align="right" width="80"><code>2025</code></td>
+    </tr>
+    <tr>
+        <td align="center" width="70"><h3>🎗️</h3></td>
+        <td width="165">
+            <img src="https://img.shields.io/badge/Consolation-546E7A?style=for-the-badge&labelColor=1A1A1A" alt="Consolation Prize" />
+        </td>
+        <td><b>Hackathon Pione Dream</b></td>
+        <td align="right" width="80"><code>2025</code></td>
+    </tr>
+</table>
+
+<div align="center">
+
+<sub>**Also competed** · GDG on Campus Hackathon Vietnam · AI+ Unlimited Future · K-Tech AI Hackathon</sub>
 
 </div>
 
@@ -12,7 +73,7 @@
 
 <table align="center" width="100%">
     <tr>
-        <td align="center" width="200" valign="top">
+        <td align="center" width="200" valign="middle">
             <h3>🎨 Frontend</h3>
         </td>
         <td valign="middle">
@@ -24,7 +85,7 @@
         </td>
     </tr>
     <tr>
-        <td align="center" width="200" valign="top">
+        <td align="center" width="200" valign="middle">
             <h3>⚙️ Backend</h3>
         </td>
         <td valign="middle">
@@ -36,7 +97,7 @@
         </td>
     </tr>
     <tr>
-        <td align="center" width="200" valign="top">
+        <td align="center" width="200" valign="middle">
             <h3>💾 Databases</h3>
         </td>
         <td valign="middle">
@@ -48,7 +109,7 @@
         </td>
     </tr>
     <tr>
-        <td align="center" width="200" valign="top">
+        <td align="center" width="200" valign="middle">
             <h3>☁️ DevOps & Infra</h3>
         </td>
         <td valign="middle">
@@ -60,7 +121,7 @@
         </td>
     </tr>
     <tr>
-        <td align="center" width="200" valign="top">
+        <td align="center" width="200" valign="middle">
             <h3>🛠️ Tools & Others</h3>
         </td>
         <td valign="middle">
@@ -73,14 +134,40 @@
 
 ---
 
-## 📫 Let's Connect
+## 📈 Contribution Activity
+
+<!--
+  Transparent background (bg_color=00000000) so the chart sits on GitHub's own
+  page colour and works in both themes — do NOT use bg_color=transparent, the
+  service emits an invalid "#transparent" and the fill breaks. Line and axis
+  colours are chosen to clear contrast on white and on #0d1117 alike.
+
+  This is the only chart here on purpose. github-readme-stats is dead (a
+  consistent 503) and a streak card was tried and cut: its origin needs 13-22s
+  to rebuild an uncached response while GitHub's camo proxy gives up at 4.4s,
+  so a cold load returned 504 every time. Both this graph and the typing SVG
+  were re-tested against freshly minted camo hashes and returned 200 in ~0.6s.
+-->
+
 <div align="center">
 
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/lephianh386ht)
-[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/lephianhdev)
-[![TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@lephianhdev)
-[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LePhiAnhDev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/phianhledev/)
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=LePhiAnhDev&bg_color=00000000&hide_border=true&custom_title=Last%2031%20Days&title_color=767D85&color=767D85&line=2F81F7&point=2F81F7&area=true&area_color=2F81F7&height=260" alt="Daily contribution activity over the last 31 days" width="100%" />
+
+</div>
+
+---
+
+## 📫 Let's Connect
+
+<div align="center">
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://lephianhdev.github.io/portfolio-page/ "Portfolio — lephianhdev.github.io")
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lephianh2006ht@gmail.com "Email — lephianh2006ht@gmail.com")
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/lephianh386ht "Telegram — @lephianh386ht")
+[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/lephianhdev "X — @lephianhdev")
+[![TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@lephianhdev "TikTok — @lephianhdev")
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LePhiAnhDev "GitHub — @LePhiAnhDev")
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/phianhledev/ "LinkedIn — in/phianhledev")
 
 </div>
 
