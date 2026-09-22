@@ -1,13 +1,17 @@
 <div align="center">
 
 <!--
-  The wordmark is a generated asset, not a service call and not type set in
+  The plate is a generated asset, not a service call and not type set in
   markdown: assets/hero.svg carries the full reasoning, including why the
-  glyphs are outlines rather than text and why there is no light/dark pair.
+  glyphs are outlines rather than text, why the plate paints its own dark
+  background instead of using a light/dark pair, and why the cursor blinks
+  on SMIL rather than CSS.
 
-  The role line below it stays markdown on purpose. Inside the SVG it was
-  12.5px, which the ~293px phone column scaled to roughly 4px. As text it
-  reflows and takes the theme's own foreground colour at full contrast.
+  The role line below it stays markdown on purpose. Anything small enough to
+  need reading is unreadable inside the asset: the ~293px phone column scales
+  the plate to a third, which is why the prompt line in it is chrome. As text
+  this line reflows and takes the theme's own foreground colour at full
+  contrast.
 -->
 
 <img src="assets/hero.svg" alt="Le Phi Anh — Full-Stack Engineer · Blockchain Engineer · AI Engineer" width="100%" />
