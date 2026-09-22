@@ -186,81 +186,43 @@
 
 ---
 
-## 🚀 Selected Work
+## 📊 Analytics
 
 <!--
-  This replaced a Contribution Activity graph, for two independent reasons.
+  The activity graph that used to sit here is gone because its host is:
+  github-readme-activity-graph.vercel.app answers 402 DEPLOYMENT_DISABLED on
+  every request. That is the third outage this section has absorbed, after
+  github-readme-stats' standing 503 and a streak card cut for latency.
 
-  The service behind it died: github-readme-activity-graph.vercel.app now
-  answers 402 DEPLOYMENT_DISABLED on every request, so the section rendered
-  as a single broken image. That is the third such outage here —
-  github-readme-stats returns a consistent 503, and a streak card was cut
-  earlier because its origin needs 13-22s to rebuild an uncached response
-  while GitHub's camo proxy gives up at 4.4s.
+  Replacements were measured rather than picked. ghchart.rshah.org is alive
+  and renders the contribution grid, but three timed requests returned 2.1s,
+  1.7s and 17.1s - GitHub's camo proxy gives up at about 4.4s, so that third
+  response is a 504 on a cold hash, and camo will not cache a failure. It was
+  rejected on that spike alone. streak-stats.demolab.com measured 0.57s,
+  1.17s and 0.38s and is themeable to the hero plate's exact palette, so it
+  stays on the shortlist if these cards ever fail.
 
-  The deeper reason is that the section was redundant even when it worked.
-  A profile page already renders the contribution calendar natively, from
-  github.com/users/<login>/contributions — the same endpoint a graph service
-  scrapes. The README was paying an external dependency to duplicate
-  something GitHub draws for free directly below it.
+  These three cards returned clean on five consecutive requests each.
+  productive-time is deliberately not among them: it answers HTTP 200 while
+  rendering a card that reads "Cards are temporarily rate limited", so a
+  failure here is not a broken image but a visible error box on the profile.
+  It was rate limited on three attempts out of three. Any card added later
+  must be checked the same way - status code alone does not prove it works.
 
-  What the README had no answer for was "show me the work". These rows are
-  that. The badge column states why each entry is here: a live star count
-  where the traction is the reason, and the award badge from the
-  Achievements table where the placement is. Reusing those exact badges is
-  what ties an award to the code that earned it.
-
-  Star badges are img.shields.io/github/stars, so the counts are read at
-  render time and cannot go stale in the file. No number is hardcoded here
-  and the closing line deliberately carries no repo count for that reason.
+  theme=github_dark paints #0d1117, which is GitHub's own dark page colour.
+  On the dark theme the cards therefore dissolve into the page and read as
+  bare figures; on the light theme they read as dark plates, which is the
+  same move the hero makes. That is why no custom palette is passed - this
+  service only accepts preset themes, and this preset already lands where the
+  page wants it.
 -->
-
-<table align="center" width="100%">
-    <tr>
-        <td align="center" width="70"><h3>🖥️</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/github/stars/LePhiAnhDev/macos-on-windows?style=for-the-badge&labelColor=0A0E14&color=E3B341" alt="Stars on macos-on-windows" />
-        </td>
-        <td><b><a href="https://github.com/LePhiAnhDev/macos-on-windows">macos-on-windows</a></b> — Running macOS on Windows, with full feature unlock and iCloud login</td>
-        <td align="right" width="110"><code>Guide</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>🤖</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/github/stars/LePhiAnhDev/telegram-bot-control-computer?style=for-the-badge&labelColor=0A0E14&color=E3B341" alt="Stars on telegram-bot-control-computer" />
-        </td>
-        <td><b><a href="https://github.com/LePhiAnhDev/telegram-bot-control-computer">telegram-bot-control-computer</a></b> — Drive a computer from Telegram: shell, files, browser automation</td>
-        <td align="right" width="110"><code>Python</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>✋</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/github/stars/LePhiAnhDev/magic-hand-ai?style=for-the-badge&labelColor=0A0E14&color=E3B341" alt="Stars on magic-hand-ai" />
-        </td>
-        <td><b><a href="https://github.com/LePhiAnhDev/magic-hand-ai">magic-hand-ai</a></b> — Hand-gesture control for the desktop, over computer vision</td>
-        <td align="right" width="110"><code>Python</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>💳</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/3rd%20Place-CD7F32?style=for-the-badge&labelColor=0A0E14" alt="3rd Place" />
-        </td>
-        <td><b><a href="https://github.com/LePhiAnhDev/fintech-blockchain-hackathon">fintech-blockchain-hackathon</a></b> — AI Powered Collections: student finance with on-chain fraud detection</td>
-        <td align="right" width="110"><code>JavaScript</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>🧠</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/Top%2020%20Finalist-1565C0?style=for-the-badge&labelColor=0A0E14" alt="Top 20 Finalist" />
-        </td>
-        <td><b><a href="https://github.com/LePhiAnhDev/olympiad-in-ai-at-hcmc">olympiad-in-ai-at-hcmc</a></b> — Competition entry for the AI Olympiad in Ho Chi Minh City</td>
-        <td align="right" width="110"><code>Python</code></td>
-    </tr>
-</table>
 
 <div align="center">
 
-<sub>**Every repository** → [github.com/LePhiAnhDev?tab=repositories](https://github.com/LePhiAnhDev?tab=repositories)</sub>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=LePhiAnhDev&theme=github_dark" alt="Contributions over the past year, public repositories, and account age" />
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=LePhiAnhDev&theme=github_dark" alt="Total stars, commits, pull requests and issues" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=LePhiAnhDev&theme=github_dark" alt="Top languages by commit" />
 
 </div>
 
