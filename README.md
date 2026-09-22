@@ -41,15 +41,15 @@
     <tr>
         <td align="center" width="70"><h3>🥇</h3></td>
         <td width="165">
-            <img src="https://img.shields.io/badge/Champion-FFD700?style=for-the-badge&labelColor=1A1A1A" alt="Champion" />
+            <img src="https://img.shields.io/badge/Champion-FFD700?style=for-the-badge&labelColor=0A0E14" alt="Champion" />
         </td>
         <td><b>Mammothon</b> — Celestia Hackathon Vietnam</td>
-        <td align="right" width="80"><code>2025</code></td>
+        <td align="right" width="80"><code>2024</code></td>
     </tr>
     <tr>
         <td align="center" width="70"><h3>🥉</h3></td>
         <td width="165">
-            <img src="https://img.shields.io/badge/3rd%20Place-CD7F32?style=for-the-badge&labelColor=1A1A1A" alt="3rd Place" />
+            <img src="https://img.shields.io/badge/3rd%20Place-CD7F32?style=for-the-badge&labelColor=0A0E14" alt="3rd Place" />
         </td>
         <td><b>Fintech Blockchain Hackathon</b></td>
         <td align="right" width="80"><code>2025</code></td>
@@ -57,7 +57,7 @@
     <tr>
         <td align="center" width="70"><h3>⭐</h3></td>
         <td width="165">
-            <img src="https://img.shields.io/badge/People's%20Choice-9C27B0?style=for-the-badge&labelColor=1A1A1A" alt="People's Choice Award" />
+            <img src="https://img.shields.io/badge/People's%20Choice-9C27B0?style=for-the-badge&labelColor=0A0E14" alt="People's Choice Award" />
         </td>
         <td><b>AI Innovation Challenge</b></td>
         <td align="right" width="80"><code>2025</code></td>
@@ -65,7 +65,7 @@
     <tr>
         <td align="center" width="70"><h3>🎖️</h3></td>
         <td width="165">
-            <img src="https://img.shields.io/badge/Top%2020%20Finalist-1565C0?style=for-the-badge&labelColor=1A1A1A" alt="Top 20 Finalist" />
+            <img src="https://img.shields.io/badge/Top%2020%20Finalist-1565C0?style=for-the-badge&labelColor=0A0E14" alt="Top 20 Finalist" />
         </td>
         <td><b>Artificial Intelligence Olympiad</b> — OAI Ho Chi Minh City</td>
         <td align="right" width="80"><code>2025</code></td>
@@ -73,7 +73,7 @@
     <tr>
         <td align="center" width="70"><h3>🎯</h3></td>
         <td width="165">
-            <img src="https://img.shields.io/badge/Semifinalist-00796B?style=for-the-badge&labelColor=1A1A1A" alt="Semifinalist" />
+            <img src="https://img.shields.io/badge/Semifinalist-00796B?style=for-the-badge&labelColor=0A0E14" alt="Semifinalist" />
         </td>
         <td><b>Vietnam Blockchain Talent Search</b> — VietChain Talents</td>
         <td align="right" width="80"><code>2025</code></td>
@@ -81,16 +81,40 @@
     <tr>
         <td align="center" width="70"><h3>🎗️</h3></td>
         <td width="165">
-            <img src="https://img.shields.io/badge/Consolation-546E7A?style=for-the-badge&labelColor=1A1A1A" alt="Consolation Prize" />
+            <img src="https://img.shields.io/badge/Consolation-546E7A?style=for-the-badge&labelColor=0A0E14" alt="Consolation Prize" />
         </td>
         <td><b>Hackathon Pione Dream</b></td>
+        <td align="right" width="80"><code>2025</code></td>
+    </tr>
+    <tr>
+        <td align="center" width="70"><h3>🔹</h3></td>
+        <td width="165">
+            <img src="https://img.shields.io/badge/Participant-37474F?style=for-the-badge&labelColor=0A0E14" alt="Participant" />
+        </td>
+        <td><b>Google Developer Groups on Campus</b> — Hackathon Vietnam</td>
+        <td align="right" width="80"><code>2025</code></td>
+    </tr>
+    <tr>
+        <td align="center" width="70"><h3>🔹</h3></td>
+        <td width="165">
+            <img src="https://img.shields.io/badge/Participant-37474F?style=for-the-badge&labelColor=0A0E14" alt="Participant" />
+        </td>
+        <td><b>AI+ Unlimited Future</b></td>
+        <td align="right" width="80"><code>2025</code></td>
+    </tr>
+    <tr>
+        <td align="center" width="70"><h3>🔹</h3></td>
+        <td width="165">
+            <img src="https://img.shields.io/badge/Participant-37474F?style=for-the-badge&labelColor=0A0E14" alt="Participant" />
+        </td>
+        <td><b>K-Tech AI Hackathon</b></td>
         <td align="right" width="80"><code>2025</code></td>
     </tr>
 </table>
 
 <div align="center">
 
-<sub>**Also competed** · GDG on Campus Hackathon Vietnam · AI+ Unlimited Future · K-Tech AI Hackathon</sub>
+<sub>**6 placements** from **9 competitions** · 2024 – 2025</sub>
 
 </div>
 
