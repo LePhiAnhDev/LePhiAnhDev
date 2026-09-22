@@ -7,16 +7,29 @@
   background instead of using a light/dark pair, and why the cursor blinks
   on SMIL rather than CSS.
 
-  The role line below it stays markdown on purpose. Anything small enough to
-  need reading is unreadable inside the asset: the ~293px phone column scales
-  the plate to a third, which is why the prompt line in it is chrome. As text
-  this line reflows and takes the theme's own foreground colour at full
-  contrast.
+  The role line stays out of the asset. Anything small enough to need reading
+  is unreadable inside it: the ~293px phone column scales the plate to a
+  third, which is why the prompt line in it is chrome.
+
+  The roles are badges rather than the plate's own type for that reason - a
+  badge keeps its own intrinsic size instead of scaling with the column, so
+  it stays legible on a phone and simply wraps. Each carries one of the three
+  colours the plate already uses: #58A6FF from the name, #3FB950 from the
+  prompt, #22D3EE from the glitch fringe. The body is the plate's own
+  background, so on GitHub's dark theme the chip recedes into the page and
+  leaves the accent bar, and on the light theme it reads as a solid dark chip.
+  flat-square, deliberately: the sections below run on for-the-badge, and the
+  weight difference is what keeps this line reading as the plate's caption
+  rather than as the first row of the wall.
 -->
 
 <img src="assets/hero.svg" alt="Le Phi Anh — Full-Stack Engineer · Blockchain Engineer · AI Engineer" width="100%" />
 
-Full-Stack Engineer&nbsp; ·&nbsp; Blockchain Engineer&nbsp; ·&nbsp; AI Engineer
+<p>
+<img src="https://img.shields.io/badge/-Full--Stack%20Engineer-0A0E14?style=flat-square&labelColor=58A6FF" alt="Full-Stack Engineer" />
+<img src="https://img.shields.io/badge/-Blockchain%20Engineer-0A0E14?style=flat-square&labelColor=3FB950" alt="Blockchain Engineer" />
+<img src="https://img.shields.io/badge/-AI%20Engineer-0A0E14?style=flat-square&labelColor=22D3EE" alt="AI Engineer" />
+</p>
 
 </div>
 
