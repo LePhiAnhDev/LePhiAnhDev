@@ -44,7 +44,7 @@
             <img src="https://img.shields.io/badge/Champion-FFD700?style=for-the-badge&labelColor=0A0E14" alt="Champion" />
         </td>
         <td><b>Mammothon</b> — Celestia Hackathon Vietnam</td>
-        <td align="right" width="80"><code>2024</code></td>
+        <td align="right" width="80"><code>2025</code></td>
     </tr>
     <tr>
         <td align="center" width="70"><h3>🥉</h3></td>
@@ -114,7 +114,7 @@
 
 <div align="center">
 
-<sub>**6 placements** from **9 competitions** · 2024 – 2025</sub>
+<sub>**6 placements** from **9 competitions** · 2025</sub>
 
 </div>
 
