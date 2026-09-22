@@ -1,8 +1,42 @@
 <div align="center">
 
-# 👋 Hey, I'm **Le Phi Anh**
+<!--
+  Masthead. Kicker -> name -> rule -> deck, so the first thing read is a
+  specific credential rather than a greeting. The <h1> supplies the rule
+  itself: GitHub gives h1/h2 a bottom border, so no separator is needed.
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=900&color=2F81F7&center=true&vCenter=true&width=560&height=46&lines=Full-Stack+Engineer;Blockchain+Engineer;AI+Engineer" alt="Full-Stack Engineer | Blockchain Engineer | AI Engineer" />
+  Badge weight is load-bearing. These two are flat-square against the
+  for-the-badge chips used in every section below, which is what makes the
+  header read as a different tier instead of more of the same wall.
+
+  shields.io splits /badge/<label>-<message>-<colour> on ASCII hyphens, so
+  neither field may contain one. The dash here is an em dash (%E2%80%94),
+  which is why "Mammothon - Celestia..." must not be "typo-fixed" back.
+
+  readme-typing-svg has no auto-width: longer lines clip silently. JetBrains
+  Mono advances 0.6em, so at size=20 the 36-char longest line needs 432px
+  plus a cursor. width=520 holds it. Re-measure before editing the lines.
+
+  Deliberately not a self-hosted SVG. That was built once (923a11e) and
+  reverted: the profile column is ~293px on a phone, which renders a 900px
+  sheet's body type at about 4px, and the <picture> width switch that would
+  fix it is inert because GitHub inserts its auto-link <a> inside <picture>.
+  Text reflows; an SVG sheet does not.
+-->
+
+<a href="#-achievements"><img src="https://img.shields.io/badge/CHAMPION-Mammothon%20%E2%80%94%20Celestia%20Hackathon%20Vietnam-1A1A1A?style=flat-square&labelColor=FFD700" alt="Champion — Mammothon, Celestia Hackathon Vietnam" /></a> <a href="#-achievements"><img src="https://img.shields.io/badge/2025-6%20placements%20from%209%20competitions-30363D?style=flat-square&labelColor=1A1A1A" alt="2025 — 6 placements from 9 competitions" /></a>
+
+# LE PHI ANH
+
+Full-Stack Engineer&nbsp; ·&nbsp; Blockchain Engineer&nbsp; ·&nbsp; AI Engineer
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=20&duration=2600&pause=900&color=2F81F7&center=true&vCenter=true&width=520&height=46&lines=Web+products+people+can+actually+use;On-chain+systems+that+hold+up;AI+features+that+earn+their+latency" alt="Web products people can actually use · On-chain systems that hold up · AI features that earn their latency" />
+
+**I build whole products, not slices of one.**
+
+Data model, services, on-chain logic, and the interface people actually touch —<br />I'd rather own the full path than hand off at the boundary.
+
+<sub>Ho Chi Minh City, Vietnam&nbsp; ·&nbsp; UTC+7&nbsp; ·&nbsp; Open to opportunities</sub>
 
 </div>
 
