@@ -31,20 +31,6 @@
 <img src="https://img.shields.io/badge/-AI%20Engineer-0A0E14?style=flat-square&labelColor=22D3EE" alt="AI Engineer" />
 </p>
 
-<!--
-  The language switch is two files rather than a toggle because GitHub strips
-  every script, button and interactive style from a README; a link to a
-  sibling file is the only switch that survives the sanitiser. English is the
-  profile itself, README.vi.md is the Vietnamese twin, and every change to
-  one belongs in the other in the same commit.
-
-  The link back from README.vi.md is absolute to the profile, not a relative
-  README.md: relative, it would land on the repository's file view and leave
-  the reader outside the profile they came from.
--->
-
-<p><sub>🌐 <b>English</b> · <a href="README.vi.md">Tiếng Việt</a></sub></p>
-
 </div>
 
 ---
