@@ -7,7 +7,7 @@
         viewBox="0 0 854 200"
       >
         <style>
-      .text {   font-size: 64px;   font-weight: 700;   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;  } .desc {   font-size: 18px;   font-weight: 500;   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;  } 
+      .text {   font-size: 64px;   font-weight: 700;   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;  } .desc {   font-size: 20px;   font-weight: 500;   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;  } 
        
     </style>
         <defs>
@@ -66,6 +66,6 @@
           </animate>
         </path>
       </g>
-         <text text-anchor="middle" dominant-baseline="middle" x="50%" y="36%" class="text" style="fill:#C0CAF5;" stroke="#none" stroke-width="1" >Le Phi Anh</text>
-        <text text-anchor="middle" dominant-baseline="middle" x="50%" y="56%" class="desc" style="fill:#C0CAF5;">Build what people use.</text>
+         <text text-anchor="middle" dominant-baseline="middle" x="50%" y="40%" class="text" style="fill:#C0CAF5;" stroke="#none" stroke-width="1" >Le Phi Anh</text>
+        
       </svg>

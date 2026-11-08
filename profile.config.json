@@ -13,7 +13,7 @@
   },
   "header": {
     "text": "Le Phi Anh",
-    "desc": "Build what people use.",
+    "desc": "",
     "height": 200
   },
   "typing": {
@@ -27,7 +27,7 @@
     "height": 110
   },
   "about": {
-    "$comment": "The About Me terminal card (assets/about.svg, and about-narrow.svg for phones). Values longer than the column wrap onto the next line. Name, role and motto are not repeated here: the header carries the name and motto, the typing line carries the roles.",
+    "$comment": "The About Me terminal card (assets/about.svg, and about-narrow.svg for phones). Values longer than the column wrap onto the next line. Name and role are not repeated here: the header carries the name, the typing line carries the roles.",
     "title": "zsh",
     "cwd": "~",
     "promptChar": "❯",
@@ -43,6 +43,7 @@
     "rows": [
       { "key": "Location", "value": "Ho Chi Minh City, Vietnam" },
       { "key": "Focus", "value": "I build products end to end, from the interface to the deployment." },
+      { "key": "Motto", "value": "Build what people use." },
       { "key": "Status", "value": "Open to new opportunities", "color": "green" }
     ]
   },

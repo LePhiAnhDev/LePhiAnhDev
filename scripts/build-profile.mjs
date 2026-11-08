@@ -56,8 +56,9 @@ function headerUrl() {
   return "https://capsule-render.vercel.app/api?" + q({
     type: "waving", height: h.height,
     color: `0:${P.bg},50:${P.blue},100:${P.purple}`,
-    text: h.text, fontColor: P.text, fontSize: 64, fontAlignY: 36,
-    desc: h.desc, descAlignY: 56, descSize: 18, animation: "fadeIn",
+    text: h.text, fontColor: P.text, fontSize: 64, animation: "fadeIn",
+    // With a subtitle the name sits higher to leave it room; alone it centres in the band above the waves.
+    ...(h.desc ? { fontAlignY: 36, desc: h.desc, descAlignY: 56, descSize: 18 } : { fontAlignY: 40 }),
   });
 }
 

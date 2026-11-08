@@ -13,7 +13,7 @@
 -->
 
 <div align="center">
-  <img src="assets/header.svg" width="100%" alt="Le Phi Anh. Build what people use." />
+  <img src="assets/header.svg" width="100%" alt="Le Phi Anh" />
   <img src="assets/typing.svg" alt="Software Engineer · Full-Stack Engineer" />
 </div>
 
@@ -23,7 +23,7 @@
 <p align="center">
   <picture>
     <source media="(max-width: 600px)" srcset="assets/about-narrow.svg" />
-    <img src="assets/about.svg" alt="Location: Ho Chi Minh City, Vietnam. Focus: I build products end to end, from the interface to the deployment. Status: Open to new opportunities." />
+    <img src="assets/about.svg" alt="Location: Ho Chi Minh City, Vietnam. Focus: I build products end to end, from the interface to the deployment. Motto: Build what people use. Status: Open to new opportunities." />
   </picture>
 </p>
 
