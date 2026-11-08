@@ -13,16 +13,14 @@
   },
   "header": {
     "text": "Le Phi Anh",
-    "desc": "Full-Stack · Blockchain · AI Engineer",
+    "desc": "Software Engineer",
     "height": 200
   },
   "typing": {
     "$comment": "No background behind this line, so its colour (purpleOnLight) has to read on white and on #0d1117.",
     "lines": [
-      "Full-Stack Engineer",
-      "Blockchain Engineer",
-      "AI Engineer",
-      "Mammothon 2025 Champion"
+      "Software Engineer",
+      "Full-Stack Engineer"
     ]
   },
   "footer": {

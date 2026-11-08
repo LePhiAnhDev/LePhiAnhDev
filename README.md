@@ -11,17 +11,17 @@
 -->
 
 <div align="center">
-  <img src="assets/header.svg" width="100%" alt="Le Phi Anh, Full-Stack · Blockchain · AI Engineer" />
-  <img src="assets/typing.svg" alt="Full-Stack Engineer · Blockchain Engineer · AI Engineer · Mammothon 2025 Champion" />
+  <img src="assets/header.svg" width="100%" alt="Le Phi Anh, Software Engineer" />
+  <img src="assets/typing.svg" alt="Software Engineer · Full-Stack Engineer" />
 </div>
 
 ## 👨‍💻 About Me
 
-I'm **Le Phi Anh**, a versatile engineer based in **Ho Chi Minh City, Vietnam**, and the **Mammothon 2025 Champion** at Celestia Hackathon Vietnam. I ship end-to-end across three fronts:
+I'm **Le Phi Anh**, a software engineer based in **Ho Chi Minh City, Vietnam**. I build products end-to-end, from the interface to the API, the data layer and the deploy:
 
-- **Full-stack web** · Next.js, NestJS, FastAPI
-- **Blockchain & Web3** · smart contracts, dApps
-- **Applied AI** · LLM apps, computer vision
+- **Frontend** · React, Next.js, Tailwind CSS
+- **Backend** · Node.js, NestJS, FastAPI
+- **Data & DevOps** · PostgreSQL, Redis, Docker, cloud deploys
 
 > **Build what people use.**
 
