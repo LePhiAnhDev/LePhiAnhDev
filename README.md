@@ -25,6 +25,27 @@
   </picture>
 </p>
 
+## 🛠️ Tech Stack
+
+<p align="center">
+  <img src="assets/stack.svg" alt="TypeScript, Python, Go, React, Next.js, Tailwind CSS, shadcn/ui, Node.js, Express, NestJS, Gin, FastAPI, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Linux, Docker, Nginx, Traefik, AWS, Vercel, Cloudflare, Git, Postman, Jira" />
+</p>
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/stats.svg" alt="GitHub stats: stars, commits, pull requests, issues and rank" />
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/top-langs.svg" alt="Most used languages" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/streak.svg" alt="Total contributions, current streak and longest streak" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/snake.svg" width="100%" alt="Contribution graph being eaten by a snake" />
+</p>
+
 ## 🏆 Achievements
 
 <!-- Text, not badges: an image in a table cell shrinks to nothing on a phone, text wraps. -->
@@ -57,40 +78,21 @@
     <td>🎗️&nbsp;<b>Consolation Prize</b></td>
     <td><b>Hackathon Pione Dream</b></td>
   </tr>
+  <tr>
+    <td>🔹&nbsp;<b>Participant</b></td>
+    <td><b>Google Developer Groups on Campus</b> · Hackathon Vietnam</td>
+  </tr>
+  <tr>
+    <td>🔹&nbsp;<b>Participant</b></td>
+    <td><b>AI+ Unlimited Future</b></td>
+  </tr>
+  <tr>
+    <td>🔹&nbsp;<b>Participant</b></td>
+    <td><b>K-Tech AI Hackathon</b></td>
+  </tr>
 </table>
 
-<details>
-  <summary>Also competed in 3 more hackathons</summary>
-  <br />
-
-  - **Google Developer Groups on Campus** · Hackathon Vietnam
-  - **AI+ Unlimited Future**
-  - **K-Tech AI Hackathon**
-
-</details>
-
 <sub>All in 2025: 6 placements from 9 competitions.</sub>
-
-## 🛠️ Tech Stack
-
-<p align="center">
-  <img src="assets/stack.svg" alt="TypeScript, Python, Go, React, Next.js, Tailwind CSS, shadcn/ui, Node.js, Express, NestJS, Gin, FastAPI, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Linux, Docker, Nginx, Traefik, AWS, Vercel, Cloudflare, Git, Postman, Jira" />
-</p>
-
-## 📊 GitHub Stats
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/stats.svg" alt="GitHub stats: stars, commits, pull requests, issues and rank" />
-  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/top-langs.svg" alt="Most used languages" />
-</p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/streak.svg" alt="Total contributions, current streak and longest streak" />
-</p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/snake.svg" width="100%" alt="Contribution graph being eaten by a snake" />
-</p>
 
 ## 📫 Connect
 
