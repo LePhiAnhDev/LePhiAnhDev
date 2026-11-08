@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Builds the profile's generated assets. No dependencies; Node 20+.
 //
-//   node scripts/build-profile.mjs assets          header, typing line, footer, tech-stack grid and about card -> assets/
+//   node scripts/build-profile.mjs assets          header, typing line, footer, tech-stack grid and about card -> assets/,
+//                                                  then stamps their README URLs with a content hash
 //   node scripts/build-profile.mjs streak <file>   streak card snapshot (used by the daily workflow)
 //   node scripts/build-profile.mjs plate <file>    paint the palette's plate behind an SVG (the snake)
 //
@@ -13,6 +14,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const config = JSON.parse(await readFile(join(ROOT, "profile.config.json"), "utf8"));
@@ -284,6 +286,25 @@ async function buildAssets() {
   await write("assets/footer.svg", solidifyCapsule(await fetchSvg(footerUrl())));
   await write("assets/stack.svg", await stackGrid());
   await buildAbout();
+  await stampReadme();
+}
+
+// Browsers keep an image for a while under its URL, so an edited asset can show
+// its old version well after the push. Every local asset reference in the README
+// carries ?v=<hash of the file>, so its URL changes exactly when its content does.
+async function stampReadme() {
+  const file = join(ROOT, "README.md");
+  const readme = await readFile(file, "utf8");
+  const pattern = /"(assets\/[\w./-]+\.svg)(?:\?v=[0-9a-f]+)?"/g;
+  const hashes = new Map();
+  for (const [, ref] of readme.matchAll(pattern)) {
+    if (!hashes.has(ref)) hashes.set(ref, createHash("sha256").update(await readFile(join(ROOT, ref))).digest("hex").slice(0, 10));
+  }
+  const out = readme.replace(pattern, (_, ref) => `"${ref}?v=${hashes.get(ref)}"`);
+  if (out !== readme) {
+    await writeFile(file, out);
+    console.log(`stamped ${hashes.size} asset URLs in README.md`);
+  }
 }
 
 async function buildStreak(out) {

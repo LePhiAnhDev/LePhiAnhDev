@@ -3,6 +3,8 @@
   - assets/header.svg, typing.svg, footer.svg, stack.svg and about*.svg are
     generated from profile.config.json by `node scripts/build-profile.mjs assets`.
     Nothing at the top of the page calls a third-party service at view time.
+    The ?v= on each asset URL is a hash of the file, written by the same
+    command, so browsers fetch an asset again exactly when it changes.
   - The stats, languages, streak and snake cards are rebuilt daily by
     .github/workflows/profile.yml and published to the `output` branch, which
     keeps main free of bot commits. If a refresh fails, yesterday's cards stay.
@@ -13,8 +15,8 @@
 -->
 
 <div align="center">
-  <img src="assets/header.svg" width="100%" alt="Le Phi Anh" />
-  <img src="assets/typing.svg" alt="Software Engineer · Full-Stack Engineer" />
+  <img src="assets/header.svg?v=f7d0dc40b7" width="100%" alt="Le Phi Anh" />
+  <img src="assets/typing.svg?v=56bdabc319" alt="Software Engineer · Full-Stack Engineer" />
 </div>
 
 ## 👨‍💻 About Me
@@ -22,15 +24,15 @@
 <!-- Generated from the "about" block of profile.config.json. Phones get the narrow card, without the logo, so the text is not scaled down. -->
 <p align="center">
   <picture>
-    <source media="(max-width: 600px)" srcset="assets/about-narrow.svg" />
-    <img src="assets/about.svg" alt="Location: Ho Chi Minh City, Vietnam. Focus: I build products end to end, from the interface to the deployment. Motto: Build what people use. Status: Open to new opportunities." />
+    <source media="(max-width: 600px)" srcset="assets/about-narrow.svg?v=90e7c37303" />
+    <img src="assets/about.svg?v=de265d4f81" alt="Location: Ho Chi Minh City, Vietnam. Focus: I build products end to end, from the interface to the deployment. Motto: Build what people use. Status: Open to new opportunities." />
   </picture>
 </p>
 
 ## 🛠️ Tech Stack
 
 <p align="center">
-  <img src="assets/stack.svg" alt="TypeScript, Python, Go, React, Next.js, Tailwind CSS, shadcn/ui, Node.js, Express, NestJS, Gin, FastAPI, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Linux, Docker, Nginx, Traefik, AWS, Vercel, Cloudflare, Git, Postman, Jira" />
+  <img src="assets/stack.svg?v=16d301026e" alt="TypeScript, Python, Go, React, Next.js, Tailwind CSS, shadcn/ui, Node.js, Express, NestJS, Gin, FastAPI, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Linux, Docker, Nginx, Traefik, AWS, Vercel, Cloudflare, Git, Postman, Jira" />
 </p>
 
 ## 📊 GitHub Stats
@@ -113,5 +115,5 @@
   <sub>Thanks for stopping by.</sub>
   <br /><br />
   <img src="https://komarev.com/ghpvc/?username=LePhiAnhDev&label=Profile%20views&color=7AA2F7&style=flat-square" alt="Profile views" />
-  <img src="assets/footer.svg" width="100%" alt="" />
+  <img src="assets/footer.svg?v=748a16fbaf" width="100%" alt="" />
 </div>
