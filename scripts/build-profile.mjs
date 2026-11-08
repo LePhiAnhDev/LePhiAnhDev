@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Builds the profile's generated assets. No dependencies; Node 20+.
 //
-//   node scripts/build-profile.mjs assets          header, typing line, footer and tech-stack strips -> assets/
+//   node scripts/build-profile.mjs assets          header, typing line, footer and tech-stack grid -> assets/
 //   node scripts/build-profile.mjs streak <file>   streak card snapshot (used by the daily workflow)
 //   node scripts/build-profile.mjs plate <file>    paint the palette's plate behind an SVG (the snake)
 //
@@ -126,17 +126,24 @@ function scopeIds(svg, key) {
     .replace(/href="#([^"]+)"/g, `href="#${key}-$1"`);
 }
 
-async function stackStrip(group) {
-  const { names, custom } = config.stack;
+// One grid of icons, `perline` per row; a short last row is centred.
+async function stackGrid() {
+  const { icons, perline, names, custom } = config.stack;
+  const cols = Math.min(perline, icons.length);
+  const rows = Math.ceil(icons.length / cols);
   const tiles = [];
-  for (const [i, id] of group.icons.entries()) {
+  for (const [i, id] of icons.entries()) {
+    const row = Math.floor(i / cols);
+    const inRow = row === rows - 1 ? icons.length - row * cols : cols;
+    const offset = ((cols - inRow) * STEP) / 2;
     const raw = custom[id] ? await customIcon(custom[id]) : await skillicon(id);
-    const placed = raw.replace(/^<svg /, `<svg x="${i * STEP}" y="0" `);
-    tiles.push(`<g><title>${xml(names[id] ?? id)}</title>${scopeIds(placed, `${group.id}-${id}`)}</g>`);
+    const placed = raw.replace(/^<svg /, `<svg x="${offset + (i % cols) * STEP}" y="${row * STEP}" `);
+    tiles.push(`<g><title>${xml(names[id] ?? id)}</title>${scopeIds(placed, id)}</g>`);
   }
-  const vbW = group.icons.length * STEP - (STEP - TILE);
-  const label = xml(`${group.label}: ${group.icons.map((id) => names[id] ?? id).join(", ")}`);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${Math.round((vbW * ICON_PX) / TILE)}" height="${ICON_PX}" viewBox="0 0 ${vbW} ${TILE}" fill="none" role="img" aria-label="${label}">
+  const vbW = cols * STEP - (STEP - TILE);
+  const vbH = rows * STEP - (STEP - TILE);
+  const label = xml(`Tech stack: ${icons.map((id) => names[id] ?? id).join(", ")}`);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${Math.round((vbW * ICON_PX) / TILE)}" height="${Math.round((vbH * ICON_PX) / TILE)}" viewBox="0 0 ${vbW} ${vbH}" fill="none" role="img" aria-label="${label}">
 <title>${label}</title>
 ${tiles.join("\n")}
 </svg>`;
@@ -148,7 +155,7 @@ async function buildAssets() {
   await write("assets/header.svg", solidifyCapsule(await fetchSvg(headerUrl())));
   await write("assets/typing.svg", await fetchSvg(typingUrl()));
   await write("assets/footer.svg", solidifyCapsule(await fetchSvg(footerUrl())));
-  for (const group of config.stack.groups) await write(`assets/stack/${group.id}.svg`, await stackStrip(group));
+  await write("assets/stack.svg", await stackGrid());
 }
 
 async function buildStreak(out) {

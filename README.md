@@ -1,6 +1,6 @@
 <!--
   How this page is built
-  - assets/header.svg, typing.svg, footer.svg and assets/stack/*.svg are snapshots
+  - assets/header.svg, typing.svg, footer.svg and stack.svg are snapshots
     generated from profile.config.json by `node scripts/build-profile.mjs assets`.
     Nothing at the top of the page calls a third-party service at view time.
   - The stats, languages, streak and snake cards are rebuilt daily by
@@ -76,33 +76,7 @@ Open to new opportunities and collaborations.
 ## 🛠️ Tech Stack
 
 <p align="center">
-  <b>Languages</b><br />
-  <img src="assets/stack/languages.svg" alt="Languages: TypeScript, Python, Go" />
-</p>
-
-<p align="center">
-  <b>Frontend</b><br />
-  <img src="assets/stack/frontend.svg" alt="Frontend: React, Next.js, Tailwind CSS, shadcn/ui" />
-</p>
-
-<p align="center">
-  <b>Backend</b><br />
-  <img src="assets/stack/backend.svg" alt="Backend: Node.js, Express, NestJS, Gin, FastAPI" />
-</p>
-
-<p align="center">
-  <b>Databases</b><br />
-  <img src="assets/stack/databases.svg" alt="Databases: PostgreSQL, MySQL, SQLite, MongoDB, Redis" />
-</p>
-
-<p align="center">
-  <b>DevOps & Cloud</b><br />
-  <img src="assets/stack/devops.svg" alt="DevOps and Cloud: Linux, Docker, Nginx, Traefik, AWS, Vercel, Cloudflare" />
-</p>
-
-<p align="center">
-  <b>Tools</b><br />
-  <img src="assets/stack/tools.svg" alt="Tools: Git, Postman, Jira" />
+  <img src="assets/stack.svg" alt="TypeScript, Python, Go, React, Next.js, Tailwind CSS, shadcn/ui, Node.js, Express, NestJS, Gin, FastAPI, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Linux, Docker, Nginx, Traefik, AWS, Vercel, Cloudflare, Git, Postman, Jira" />
 </p>
 
 ## 📊 GitHub Stats

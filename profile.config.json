@@ -29,15 +29,13 @@
     "height": 110
   },
   "stack": {
-    "$comment": "Icons come from skillicons.dev; ids skillicons does not have are drawn from simple-icons with the tile and glyph colours given in custom.",
+    "$comment": "One icon grid, perline icons per row. Icons come from skillicons.dev; ids skillicons does not have are drawn from simple-icons with the tile and glyph colours given in custom.",
     "simpleIconsVersion": "16.30.0",
-    "groups": [
-      { "id": "languages", "label": "Languages", "icons": ["ts", "py", "go"] },
-      { "id": "frontend", "label": "Frontend", "icons": ["react", "nextjs", "tailwind", "shadcn"] },
-      { "id": "backend", "label": "Backend", "icons": ["nodejs", "express", "nestjs", "gin", "fastapi"] },
-      { "id": "databases", "label": "Databases", "icons": ["postgres", "mysql", "sqlite", "mongodb", "redis"] },
-      { "id": "devops", "label": "DevOps & Cloud", "icons": ["linux", "docker", "nginx", "traefik", "aws", "vercel", "cloudflare"] },
-      { "id": "tools", "label": "Tools", "icons": ["git", "postman", "jira"] }
+    "perline": 9,
+    "icons": [
+      "ts", "py", "go", "react", "nextjs", "tailwind", "shadcn", "nodejs", "express",
+      "nestjs", "gin", "fastapi", "postgres", "mysql", "sqlite", "mongodb", "redis", "linux",
+      "docker", "nginx", "traefik", "aws", "vercel", "cloudflare", "git", "postman", "jira"
     ],
     "names": {
       "ts": "TypeScript", "py": "Python", "go": "Go",
