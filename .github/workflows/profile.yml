@@ -56,7 +56,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&custom_title=GitHub Stats&${{ env.CARD_STYLE }}
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&custom_title=Overview&${{ env.CARD_STYLE }}
           path: dist/stats.svg
           token: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
           fail_on_error: true

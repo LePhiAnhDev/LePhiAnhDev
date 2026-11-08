@@ -11,7 +11,7 @@
 -->
 
 <div align="center">
-  <img src="assets/header.svg" width="100%" alt="Le Phi Anh, Software Engineer" />
+  <img src="assets/header.svg" width="100%" alt="Le Phi Anh. Build what people use." />
   <img src="assets/typing.svg" alt="Software Engineer · Full-Stack Engineer" />
 </div>
 
@@ -21,7 +21,7 @@
 <p align="center">
   <picture>
     <source media="(max-width: 600px)" srcset="assets/about-narrow.svg" />
-    <img src="assets/about.svg" alt="Role: Software Engineer. Location: Ho Chi Minh City, Vietnam. Focus: I build products end to end, from the interface to the deployment. Motto: Build what people use. Status: Open to new opportunities." />
+    <img src="assets/about.svg" alt="Location: Ho Chi Minh City, Vietnam. Focus: I build products end to end, from the interface to the deployment. Status: Open to new opportunities." />
   </picture>
 </p>
 
@@ -34,7 +34,7 @@
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/stats.svg" alt="GitHub stats: stars, commits, pull requests, issues and rank" />
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/stats.svg" alt="Overview: stars, commits, pull requests, issues and rank" />
   <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/top-langs.svg" alt="Most used languages" />
 </p>
 
@@ -49,7 +49,7 @@
 ## 🏆 Achievements
 
 <!-- Text, not badges: an image in a table cell shrinks to nothing on a phone, text wraps. -->
-<table>
+<table align="center">
   <tr>
     <th align="left">Result</th>
     <th align="left">Competition</th>
@@ -92,7 +92,7 @@
   </tr>
 </table>
 
-<sub>All in 2025: 6 placements from 9 competitions.</sub>
+<p align="center"><sub>All in 2025: 6 placements from 9 competitions.</sub></p>
 
 ## 📫 Connect
 

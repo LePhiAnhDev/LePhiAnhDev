@@ -214,13 +214,13 @@ function aboutCard({ narrow, font }) {
 
   const promptY = bar + 30;
   const top = promptY + lh + 10;
-  const bodyRows = 2 + lines.length + 2;    // name, rule, rows, gap, swatches
+  const bodyRows = lines.length + 2;        // rows, gap, swatches
   const finalY = top + bodyRows * lh + 4;
   const H = finalY + 22;
 
-  const who = `${A.user}@${A.host}`;
-  const prompt = (y) => `<text x="${pad}" y="${y}"><tspan fill="${C.green}">${xml(who)}</tspan><tspan fill="${C.blue}"> ~</tspan><tspan fill="${C.fg}"> $ </tspan></text>`;
-  const cmdX = pad + (who.length + 5) * cw;
+  // A bare prompt: the name is already the page's headline, so the card does not repeat it.
+  const prompt = (y) => `<text x="${pad}" y="${y}"><tspan fill="${C.blue}">${xml(A.cwd)}</tspan><tspan fill="${C.green}"> ${xml(A.promptChar)} </tspan></text>`;
+  const cmdX = pad + (A.cwd.length + A.promptChar.length + 2) * cw;
 
   // Timeline, in seconds.
   const typeStart = 0.4, perChar = 0.07;
@@ -236,10 +236,7 @@ function aboutCard({ narrow, font }) {
   }
   let k = 0;
   const at = () => outStart + step * k++;
-  let y = top;
-  body.push(`<g>${appear(at())}<text x="${infoX}" y="${y}" font-weight="700"><tspan fill="${C.blue}">${xml(A.user)}</tspan><tspan fill="${C.fg}">@</tspan><tspan fill="${C.purple}">${xml(A.host)}</tspan></text></g>`);
-  y += lh;
-  body.push(`<g>${appear(at())}<text x="${infoX}" y="${y}" fill="${C.muted}">${"─".repeat(who.length)}</text></g>`);
+  let y = top - lh;
   for (const l of lines) {
     y += lh;
     const key = l.key ? `<text x="${infoX}" y="${y}" fill="${C.blue}" font-weight="700">${xml(l.key)}</text>` : "";
@@ -262,7 +259,7 @@ function aboutCard({ narrow, font }) {
 <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="12" fill="${C.bg}" stroke="${C.line}"/>
 <path d="M0.5 ${bar}H${W - 0.5}" stroke="${C.line}"/>
 ${C.dots.map((c, i) => `<circle cx="${pad - 6 + i * 20}" cy="${bar / 2}" r="6" fill="${c}"/>`).join("")}
-<text x="${W / 2}" y="${bar / 2 + 4.5}" text-anchor="middle" fill="${C.muted}" style="font-size:${narrow ? 11.5 : 12.5}px">${xml(who)}: ~</text>
+<text x="${W / 2}" y="${bar / 2 + 4.5}" text-anchor="middle" fill="${C.muted}" style="font-size:${narrow ? 11.5 : 12.5}px">${xml(A.title)}</text>
 ${prompt(promptY)}
 <text x="${cmdX}" y="${promptY}" fill="${C.fg}" clip-path="url(#about-cmd)">${xml(A.command)}</text>
 ${body.join("\n")}
@@ -272,7 +269,7 @@ ${body.join("\n")}
 
 async function buildAbout() {
   const A = config.about;
-  const text = [A.user, A.host, A.command, "@~$:─ ", ...A.logo, ...A.rows.flatMap((r) => [r.key, r.value])].join("");
+  const text = [A.title, A.cwd, A.promptChar, A.command, " ", ...A.logo, ...A.rows.flatMap((r) => [r.key, r.value])].join("");
   const font = await embeddedMono(text);
   await write("assets/about.svg", aboutCard({ narrow: false, font }));
   await write("assets/about-narrow.svg", aboutCard({ narrow: true, font }));
