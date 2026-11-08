@@ -26,6 +26,27 @@
   "footer": {
     "height": 110
   },
+  "about": {
+    "$comment": "The About Me terminal card (assets/about.svg, and about-narrow.svg for phones). Values longer than the column wrap onto the next line.",
+    "user": "lephianh",
+    "host": "github",
+    "command": "neofetch",
+    "logo": [
+      "██╗     ██████╗  █████╗ ",
+      "██║     ██╔══██╗██╔══██╗",
+      "██║     ██████╔╝███████║",
+      "██║     ██╔═══╝ ██╔══██║",
+      "███████╗██║     ██║  ██║",
+      "╚══════╝╚═╝     ╚═╝  ╚═╝"
+    ],
+    "rows": [
+      { "key": "Role", "value": "Software Engineer" },
+      { "key": "Location", "value": "Ho Chi Minh City, Vietnam" },
+      { "key": "Focus", "value": "I build products end to end, from the interface to the deployment." },
+      { "key": "Motto", "value": "Build what people use." },
+      { "key": "Status", "value": "Open to new opportunities", "color": "green" }
+    ]
+  },
   "stack": {
     "$comment": "One icon grid, perline icons per row. Icons come from skillicons.dev; ids skillicons does not have are drawn from simple-icons with the tile and glyph colours given in custom.",
     "simpleIconsVersion": "16.30.0",

@@ -1,6 +1,6 @@
 <!--
   How this page is built
-  - assets/header.svg, typing.svg, footer.svg and stack.svg are snapshots
+  - assets/header.svg, typing.svg, footer.svg, stack.svg and about*.svg are
     generated from profile.config.json by `node scripts/build-profile.mjs assets`.
     Nothing at the top of the page calls a third-party service at view time.
   - The stats, languages, streak and snake cards are rebuilt daily by
@@ -17,15 +17,13 @@
 
 ## 👨‍💻 About Me
 
-I'm **Le Phi Anh**, a software engineer based in **Ho Chi Minh City, Vietnam**. I build products end-to-end, from the interface to the API, the data layer and the deploy:
-
-- **Frontend** · React, Next.js, Tailwind CSS
-- **Backend** · Node.js, NestJS, FastAPI
-- **Data & DevOps** · PostgreSQL, Redis, Docker, cloud deploys
-
-> **Build what people use.**
-
-Open to new opportunities and collaborations.
+<!-- Generated from the "about" block of profile.config.json. Phones get the narrow card, without the logo, so the text is not scaled down. -->
+<p align="center">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/about-narrow.svg" />
+    <img src="assets/about.svg" alt="Role: Software Engineer. Location: Ho Chi Minh City, Vietnam. Focus: I build products end to end, from the interface to the deployment. Motto: Build what people use. Status: Open to new opportunities." />
+  </picture>
+</p>
 
 ## 🏆 Achievements
 

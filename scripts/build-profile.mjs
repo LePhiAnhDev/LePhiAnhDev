@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Builds the profile's generated assets. No dependencies; Node 20+.
 //
-//   node scripts/build-profile.mjs assets          header, typing line, footer and tech-stack grid -> assets/
+//   node scripts/build-profile.mjs assets          header, typing line, footer, tech-stack grid and about card -> assets/
 //   node scripts/build-profile.mjs streak <file>   streak card snapshot (used by the daily workflow)
 //   node scripts/build-profile.mjs plate <file>    paint the palette's plate behind an SVG (the snake)
 //
@@ -149,6 +149,135 @@ ${tiles.join("\n")}
 </svg>`;
 }
 
+// --- about card -----------------------------------------------------------------
+//
+// A terminal window: the command is typed, then the logo and each row appear in
+// turn, and a cursor blinks on a fresh prompt. Every animation runs from the
+// element's own visible state, so a viewer that ignores SMIL still shows the
+// whole card. JetBrains Mono is embedded as a subset of exactly the characters
+// used, because an <img> SVG cannot load web fonts and the columns and logo
+// only line up in a monospace face with known metrics.
+
+const TOKYO = {
+  bg: `#${P.bg}`, line: `#${P.line}`, fg: `#${P.text}`, muted: "#565F89",
+  blue: `#${P.blue}`, purple: `#${P.purple}`, green: `#${P.green}`,
+  dots: ["#F7768E", "#E0AF68", "#9ECE6A"],
+  swatches: ["#F7768E", "#FF9E64", "#E0AF68", "#9ECE6A", "#73DACA", "#7DCFFF", "#7AA2F7", "#BB9AF7"],
+};
+
+async function embeddedMono(text) {
+  const chars = [...new Set(text)].sort().join("");
+  // Google Fonts serves woff2 only to browser user agents.
+  const ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36";
+  const css = await (await fetch(`https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&text=${encodeURIComponent(chars)}`, { headers: { "user-agent": ua } })).text();
+  const faces = [...css.matchAll(/font-weight: (\d+);\s*src: url\(([^)]+)\)/g)];
+  if (faces.length === 0) throw new Error("Google Fonts returned no JetBrains Mono faces");
+  let out = "";
+  for (const [, weight, url] of faces) {
+    const res = await fetch(url, { headers: { "user-agent": ua } });
+    if (!res.ok) throw new Error(`font download failed: HTTP ${res.status}`);
+    const b64 = Buffer.from(await res.arrayBuffer()).toString("base64");
+    out += `@font-face{font-family:'JBM';font-weight:${weight};src:url(data:font/woff2;base64,${b64}) format('woff2');}`;
+  }
+  return out;
+}
+
+function wrap(text, max) {
+  const lines = [];
+  let cur = "";
+  for (const word of text.split(" ")) {
+    if (cur && (cur + " " + word).length > max) { lines.push(cur); cur = word; }
+    else cur = cur ? cur + " " + word : word;
+  }
+  return cur ? [...lines, cur] : lines;
+}
+
+function aboutCard({ narrow, font }) {
+  const A = config.about;
+  const C = TOKYO;
+  const fs = narrow ? 13.5 : 15;            // font size
+  const cw = fs * 0.6;                      // JetBrains Mono advance is 600/1000 em
+  const lh = narrow ? 21 : 23;              // row height
+  const pad = narrow ? 18 : 28;
+  const W = narrow ? 380 : 840;
+  const bar = 34;                           // title bar
+  const logoW = narrow ? 0 : A.logo[0].length * cw + 44;
+  const infoX = pad + logoW;
+  const keyCols = Math.max(...A.rows.map((r) => r.key.length)) + 2;
+  const valX = infoX + keyCols * cw;
+  const maxChars = Math.floor((W - pad - valX) / cw);
+
+  const lines = []; // { key?, text, color }
+  for (const r of A.rows) {
+    wrap(r.value, maxChars).forEach((text, i) => lines.push({ key: i === 0 ? r.key : null, text, color: C[r.color] ?? C.fg }));
+  }
+
+  const promptY = bar + 30;
+  const top = promptY + lh + 10;
+  const bodyRows = 2 + lines.length + 2;    // name, rule, rows, gap, swatches
+  const finalY = top + bodyRows * lh + 4;
+  const H = finalY + 22;
+
+  const who = `${A.user}@${A.host}`;
+  const prompt = (y) => `<text x="${pad}" y="${y}"><tspan fill="${C.green}">${xml(who)}</tspan><tspan fill="${C.blue}"> ~</tspan><tspan fill="${C.fg}"> $ </tspan></text>`;
+  const cmdX = pad + (who.length + 5) * cw;
+
+  // Timeline, in seconds.
+  const typeStart = 0.4, perChar = 0.07;
+  const typeEnd = typeStart + A.command.length * perChar;
+  const outStart = typeEnd + 0.35, step = 0.05;
+  const appear = (t) => `<animate attributeName="opacity" values="0;1" keyTimes="0;1" calcMode="discrete" dur="${t.toFixed(3)}s" fill="freeze"/>`;
+
+  const body = [];
+  if (!narrow) {
+    const ah = fs * 1.32;                   // block glyphs fill ascent + descent, so rows touch
+    const logoTop = top + (bodyRows * lh - A.logo.length * ah) / 2 + fs * 0.6;
+    A.logo.forEach((row, i) => body.push(`<g>${appear(outStart + step * i)}<text x="${pad}" y="${(logoTop + i * ah).toFixed(1)}" fill="${i < A.logo.length / 2 ? C.blue : C.purple}">${xml(row)}</text></g>`));
+  }
+  let k = 0;
+  const at = () => outStart + step * k++;
+  let y = top;
+  body.push(`<g>${appear(at())}<text x="${infoX}" y="${y}" font-weight="700"><tspan fill="${C.blue}">${xml(A.user)}</tspan><tspan fill="${C.fg}">@</tspan><tspan fill="${C.purple}">${xml(A.host)}</tspan></text></g>`);
+  y += lh;
+  body.push(`<g>${appear(at())}<text x="${infoX}" y="${y}" fill="${C.muted}">${"─".repeat(who.length)}</text></g>`);
+  for (const l of lines) {
+    y += lh;
+    const key = l.key ? `<text x="${infoX}" y="${y}" fill="${C.blue}" font-weight="700">${xml(l.key)}</text>` : "";
+    body.push(`<g>${appear(at())}${key}<text x="${valX}" y="${y}" fill="${l.color}">${xml(l.text)}</text></g>`);
+  }
+  y += lh * 2 - 14;
+  const sw = narrow ? 22 : 26, gap = narrow ? 4 : 4;
+  body.push(`<g>${appear(at())}${C.swatches.map((c, i) => `<rect x="${infoX + i * (sw + gap)}" y="${y}" width="${sw}" height="14" rx="3" fill="${c}"/>`).join("")}</g>`);
+  const done = at() + 0.15;
+
+  const widths = Array.from({ length: A.command.length + 1 }, (_, i) => (i * cw).toFixed(1));
+  const typeDur = typeEnd + 0.001;
+  const keyTimes = widths.map((_, i) => ((typeStart + i * perChar) / typeDur).toFixed(4));
+  const summary = A.rows.map((r) => `${r.key}: ${r.value}`).join(" ");
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${xml(summary)}">
+<title>${xml(summary)}</title>
+<style>${font}text{font-family:'JBM','JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:${fs}px;white-space:pre}</style>
+<defs><clipPath id="about-cmd"><rect x="${cmdX}" y="${promptY - fs}" width="${widths.at(-1)}" height="${fs + 6}"><animate attributeName="width" values="0;${widths.join(";")}" keyTimes="0;${keyTimes.join(";")}" dur="${typeDur.toFixed(3)}s" calcMode="discrete" fill="freeze"/></rect></clipPath></defs>
+<rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="12" fill="${C.bg}" stroke="${C.line}"/>
+<path d="M0.5 ${bar}H${W - 0.5}" stroke="${C.line}"/>
+${C.dots.map((c, i) => `<circle cx="${pad - 6 + i * 20}" cy="${bar / 2}" r="6" fill="${c}"/>`).join("")}
+<text x="${W / 2}" y="${bar / 2 + 4.5}" text-anchor="middle" fill="${C.muted}" style="font-size:${narrow ? 11.5 : 12.5}px">${xml(who)}: ~</text>
+${prompt(promptY)}
+<text x="${cmdX}" y="${promptY}" fill="${C.fg}" clip-path="url(#about-cmd)">${xml(A.command)}</text>
+${body.join("\n")}
+<g>${appear(done)}${prompt(finalY)}<rect x="${cmdX}" y="${finalY - fs + 2}" width="${cw}" height="${fs + 2}" fill="${C.fg}"><animate attributeName="opacity" values="1;1;0;0" dur="1.1s" begin="${done.toFixed(2)}s" repeatCount="indefinite"/></rect></g>
+</svg>`;
+}
+
+async function buildAbout() {
+  const A = config.about;
+  const text = [A.user, A.host, A.command, "@~$:─ ", ...A.logo, ...A.rows.flatMap((r) => [r.key, r.value])].join("");
+  const font = await embeddedMono(text);
+  await write("assets/about.svg", aboutCard({ narrow: false, font }));
+  await write("assets/about-narrow.svg", aboutCard({ narrow: true, font }));
+}
+
 // --- commands -------------------------------------------------------------------
 
 async function buildAssets() {
@@ -156,6 +285,7 @@ async function buildAssets() {
   await write("assets/typing.svg", await fetchSvg(typingUrl()));
   await write("assets/footer.svg", solidifyCapsule(await fetchSvg(footerUrl())));
   await write("assets/stack.svg", await stackGrid());
+  await buildAbout();
 }
 
 async function buildStreak(out) {
