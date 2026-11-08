@@ -1,256 +1,140 @@
-<div align="center">
-
 <!--
-  The plate is a generated asset, not a service call and not type set in
-  markdown: assets/hero.svg carries the full reasoning, including why the
-  glyphs are outlines rather than text, why the plate paints its own dark
-  background instead of using a light/dark pair, and why the cursor blinks
-  on SMIL rather than CSS.
-
-  The role line stays out of the asset. Anything small enough to need reading
-  is unreadable inside it: the ~293px phone column scales the plate to a
-  third, which is why the prompt line in it is chrome.
-
-  The roles are badges rather than the plate's own type for that reason - a
-  badge keeps its own intrinsic size instead of scaling with the column, so
-  it stays legible on a phone and simply wraps. Each carries one of the three
-  colours the plate already uses: #58A6FF from the name, #3FB950 from the
-  prompt, #22D3EE from the glitch fringe. The body is the plate's own
-  background, so on GitHub's dark theme the chip recedes into the page and
-  leaves the accent bar, and on the light theme it reads as a solid dark chip.
-  flat-square, deliberately: the sections below run on for-the-badge, and the
-  weight difference is what keeps this line reading as the plate's caption
-  rather than as the first row of the wall.
+  How this page is built
+  - assets/header.svg, typing.svg, footer.svg and assets/stack/*.svg are snapshots
+    generated from profile.config.json by `node scripts/build-profile.mjs assets`.
+    Nothing at the top of the page calls a third-party service at view time.
+  - The stats, languages, streak and snake cards are rebuilt daily by
+    .github/workflows/profile.yml and published to the `output` branch, which
+    keeps main free of bot commits. If a refresh fails, yesterday's cards stay.
+  - Palette: Tokyo Night. Every card is an opaque #1A1B26 plate, so the page
+    reads the same on GitHub's light and dark themes.
 -->
 
-<img src="assets/hero.svg" alt="Le Phi Anh — Full-Stack Engineer · Blockchain Engineer · AI Engineer" width="100%" />
-
-<p>
-<img src="https://img.shields.io/badge/-Full--Stack%20Engineer-0A0E14?style=flat-square&labelColor=58A6FF" alt="Full-Stack Engineer" />
-<img src="https://img.shields.io/badge/-Blockchain%20Engineer-0A0E14?style=flat-square&labelColor=3FB950" alt="Blockchain Engineer" />
-<img src="https://img.shields.io/badge/-AI%20Engineer-0A0E14?style=flat-square&labelColor=22D3EE" alt="AI Engineer" />
-</p>
-
+<div align="center">
+  <img src="assets/header.svg" width="100%" alt="Le Phi Anh, Full-Stack · Blockchain · AI Engineer" />
+  <img src="assets/typing.svg" alt="Full-Stack Engineer · Blockchain Engineer · AI Engineer · Mammothon 2025 Champion" />
 </div>
 
----
+## 👨‍💻 About Me
+
+I'm **Le Phi Anh**, a versatile engineer based in **Ho Chi Minh City, Vietnam**, and the **Mammothon 2025 Champion** at Celestia Hackathon Vietnam. I ship end-to-end across three fronts:
+
+- **Full-stack web** · Next.js, NestJS, FastAPI
+- **Blockchain & Web3** · smart contracts, dApps
+- **Applied AI** · LLM apps, computer vision
+
+> **Build what people use.**
+
+Open to new opportunities and collaborations.
 
 ## 🏆 Achievements
 
-<table align="center" width="100%">
-    <tr>
-        <td align="center" width="70"><h3>🥇</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/Champion-FFD700?style=for-the-badge&labelColor=0A0E14" alt="Champion" />
-        </td>
-        <td><b>Mammothon</b> — Celestia Hackathon Vietnam</td>
-        <td align="right" width="80"><code>2025</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>🥉</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/3rd%20Place-CD7F32?style=for-the-badge&labelColor=0A0E14" alt="3rd Place" />
-        </td>
-        <td><b>Fintech Blockchain Hackathon</b></td>
-        <td align="right" width="80"><code>2025</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>⭐</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/People's%20Choice-9C27B0?style=for-the-badge&labelColor=0A0E14" alt="People's Choice Award" />
-        </td>
-        <td><b>AI Innovation Challenge</b></td>
-        <td align="right" width="80"><code>2025</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>🎖️</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/Top%2020%20Finalist-1565C0?style=for-the-badge&labelColor=0A0E14" alt="Top 20 Finalist" />
-        </td>
-        <td><b>Artificial Intelligence Olympiad</b> — OAI Ho Chi Minh City</td>
-        <td align="right" width="80"><code>2025</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>🎯</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/Semifinalist-00796B?style=for-the-badge&labelColor=0A0E14" alt="Semifinalist" />
-        </td>
-        <td><b>Vietnam Blockchain Talent Search</b> — VietChain Talents</td>
-        <td align="right" width="80"><code>2025</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>🎗️</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/Consolation-546E7A?style=for-the-badge&labelColor=0A0E14" alt="Consolation Prize" />
-        </td>
-        <td><b>Hackathon Pione Dream</b></td>
-        <td align="right" width="80"><code>2025</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>🔹</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/Participant-37474F?style=for-the-badge&labelColor=0A0E14" alt="Participant" />
-        </td>
-        <td><b>Google Developer Groups on Campus</b> — Hackathon Vietnam</td>
-        <td align="right" width="80"><code>2025</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>🔹</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/Participant-37474F?style=for-the-badge&labelColor=0A0E14" alt="Participant" />
-        </td>
-        <td><b>AI+ Unlimited Future</b></td>
-        <td align="right" width="80"><code>2025</code></td>
-    </tr>
-    <tr>
-        <td align="center" width="70"><h3>🔹</h3></td>
-        <td width="165">
-            <img src="https://img.shields.io/badge/Participant-37474F?style=for-the-badge&labelColor=0A0E14" alt="Participant" />
-        </td>
-        <td><b>K-Tech AI Hackathon</b></td>
-        <td align="right" width="80"><code>2025</code></td>
-    </tr>
+<!-- Text, not badges: an image in a table cell shrinks to nothing on a phone, text wraps. -->
+<table>
+  <tr>
+    <th align="left">Result</th>
+    <th align="left">Competition</th>
+  </tr>
+  <tr>
+    <td>🥇&nbsp;<b>Champion</b></td>
+    <td><b>Mammothon</b> · Celestia Hackathon Vietnam</td>
+  </tr>
+  <tr>
+    <td>🥉&nbsp;<b>3rd Place</b></td>
+    <td><b>Fintech Blockchain Hackathon</b></td>
+  </tr>
+  <tr>
+    <td>⭐&nbsp;<b>People's Choice</b></td>
+    <td><b>AI Innovation Challenge</b></td>
+  </tr>
+  <tr>
+    <td>🎖️&nbsp;<b>Top 20 Finalist</b></td>
+    <td><b>Artificial Intelligence Olympiad</b> · OAI Ho Chi Minh City</td>
+  </tr>
+  <tr>
+    <td>🎯&nbsp;<b>Semifinalist</b></td>
+    <td><b>Vietnam Blockchain Talent Search</b> · VietChain Talents</td>
+  </tr>
+  <tr>
+    <td>🎗️&nbsp;<b>Consolation Prize</b></td>
+    <td><b>Hackathon Pione Dream</b></td>
+  </tr>
 </table>
 
-<div align="center">
+<details>
+  <summary>Also competed in 3 more hackathons</summary>
+  <br />
 
-<sub>**6 placements** from **9 competitions** · 2025</sub>
+  - **Google Developer Groups on Campus** · Hackathon Vietnam
+  - **AI+ Unlimited Future**
+  - **K-Tech AI Hackathon**
 
-</div>
+</details>
 
----
+<sub>All in 2025: 6 placements from 9 competitions.</sub>
 
-## 💻 Tech Stack
+## 🛠️ Tech Stack
 
-<table align="center" width="100%">
-    <tr>
-        <td align="center" width="200" valign="middle">
-            <h3>🎨 Frontend</h3>
-        </td>
-        <td valign="middle">
-            <img src="https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-            <img src="https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
-            <img src="https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
-            <img src="https://img.shields.io/badge/TailwindCSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
-            <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="Shadcn UI" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center" width="200" valign="middle">
-            <h3>⚙️ Backend</h3>
-        </td>
-        <td valign="middle">
-            <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white" alt="Node.js" />
-            <img src="https://img.shields.io/badge/Express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="Express.js" />
-            <img src="https://img.shields.io/badge/NestJS-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" />
-            <img src="https://img.shields.io/badge/Gin-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Gin (Go)" />
-            <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center" width="200" valign="middle">
-            <h3>💾 Databases</h3>
-        </td>
-        <td valign="middle">
-            <img src="https://img.shields.io/badge/PostgreSQL-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-            <img src="https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-            <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB" />
-            <img src="https://img.shields.io/badge/SQLite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
-            <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center" width="200" valign="middle">
-            <h3>☁️ DevOps & Infra</h3>
-        </td>
-        <td valign="middle">
-            <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
-            <img src="https://img.shields.io/badge/Docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-            <img src="https://img.shields.io/badge/Nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white" alt="Nginx" />
-            <img src="https://img.shields.io/badge/Traefik-%2324A1C1.svg?style=for-the-badge&logo=traefikproxy&logoColor=white" alt="Traefik" />
-            <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS" />
-            <img src="https://img.shields.io/badge/Vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
-            <img src="https://img.shields.io/badge/Cloudflare-%23F38020.svg?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center" width="200" valign="middle">
-            <h3>🛠️ Tools & Others</h3>
-        </td>
-        <td valign="middle">
-            <img src="https://img.shields.io/badge/Git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-            <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" />
-            <img src="https://img.shields.io/badge/Jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white" alt="Jira" />
-        </td>
-    </tr>
-</table>
+<p align="center">
+  <b>Languages</b><br />
+  <img src="assets/stack/languages.svg" alt="Languages: TypeScript, Python, Go" />
+</p>
 
----
+<p align="center">
+  <b>Frontend</b><br />
+  <img src="assets/stack/frontend.svg" alt="Frontend: React, Next.js, Tailwind CSS, shadcn/ui" />
+</p>
 
-## 📊 Analytics
+<p align="center">
+  <b>Backend</b><br />
+  <img src="assets/stack/backend.svg" alt="Backend: Node.js, Express, NestJS, Gin, FastAPI" />
+</p>
 
-<!--
-  The activity graph that used to sit here is gone because its host is:
-  github-readme-activity-graph.vercel.app answers 402 DEPLOYMENT_DISABLED on
-  every request. That is the third outage this section has absorbed, after
-  github-readme-stats' standing 503 and a streak card cut for latency.
+<p align="center">
+  <b>Databases</b><br />
+  <img src="assets/stack/databases.svg" alt="Databases: PostgreSQL, MySQL, SQLite, MongoDB, Redis" />
+</p>
 
-  Replacements were measured rather than picked. ghchart.rshah.org is alive
-  and renders the contribution grid, but three timed requests returned 2.1s,
-  1.7s and 17.1s - GitHub's camo proxy gives up at about 4.4s, so that third
-  response is a 504 on a cold hash, and camo will not cache a failure. It was
-  rejected on that spike alone. streak-stats.demolab.com measured 0.57s,
-  1.17s and 0.38s and is themeable to the hero plate's exact palette, so it
-  stays on the shortlist if these cards ever fail.
+<p align="center">
+  <b>DevOps & Cloud</b><br />
+  <img src="assets/stack/devops.svg" alt="DevOps and Cloud: Linux, Docker, Nginx, Traefik, AWS, Vercel, Cloudflare" />
+</p>
 
-  These three cards returned clean on five consecutive requests each.
-  productive-time is deliberately not among them: it answers HTTP 200 while
-  rendering a card that reads "Cards are temporarily rate limited", so a
-  failure here is not a broken image but a visible error box on the profile.
-  It was rate limited on three attempts out of three. Any card added later
-  must be checked the same way - status code alone does not prove it works.
+<p align="center">
+  <b>Tools</b><br />
+  <img src="assets/stack/tools.svg" alt="Tools: Git, Postman, Jira" />
+</p>
 
-  theme=github_dark paints #0d1117, which is GitHub's own dark page colour.
-  On the dark theme the cards therefore dissolve into the page and read as
-  bare figures; on the light theme they read as dark plates, which is the
-  same move the hero makes. That is why no custom palette is passed - this
-  service only accepts preset themes, and this preset already lands where the
-  page wants it.
--->
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/stats.svg" alt="GitHub stats: stars, commits, pull requests, issues and rank" />
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/top-langs.svg" alt="Most used languages" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/streak.svg" alt="Total contributions, current streak and longest streak" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/snake.svg" width="100%" alt="Contribution graph being eaten by a snake" />
+</p>
+
+## 📫 Connect
+
+<p align="center">
+  <a href="https://lephianhdev.github.io/portfolio-page/" title="Portfolio"><img src="https://img.shields.io/badge/Portfolio-1A1B26?style=for-the-badge&logo=googlechrome&logoColor=7AA2F7" alt="Portfolio" /></a>
+  <a href="mailto:lephianh2006ht@gmail.com" title="lephianh2006ht@gmail.com"><img src="https://img.shields.io/badge/Email-1A1B26?style=for-the-badge&logo=gmail&logoColor=7AA2F7" alt="Email" /></a>
+  <a href="https://www.linkedin.com/in/phianhledev/" title="LinkedIn: in/phianhledev"><img src="https://img.shields.io/badge/LinkedIn-1A1B26?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzdBQTJGNyIgZD0iTTIwLjQ1IDIwLjQ1aC0zLjU2di01LjU3YzAtMS4zMy0uMDItMy4wNC0xLjg1LTMuMDQtMS44NSAwLTIuMTQgMS40NS0yLjE0IDIuOTR2NS42N0g5LjM1VjloMy40MXYxLjU2aC4wNWMuNDgtLjkgMS42NC0xLjg1IDMuMzctMS44NSAzLjYgMCA0LjI3IDIuMzcgNC4yNyA1LjQ2djYuMjh6TTUuMzQgNy40M2EyLjA2IDIuMDYgMCAxIDEgMC00LjEzIDIuMDYgMi4wNiAwIDAgMSAwIDQuMTN6TTcuMTIgMjAuNDVIMy41NlY5aDMuNTZ2MTEuNDV6TTIyLjIyIDBIMS43N0MuNzkgMCAwIC43NyAwIDEuNzN2MjAuNTRDMCAyMy4yMy43OSAyNCAxLjc3IDI0aDIwLjQ1Yy45OCAwIDEuNzgtLjc3IDEuNzgtMS43M1YxLjczQzI0IC43NyAyMy4yIDAgMjIuMjIgMHoiLz48L3N2Zz4=" alt="LinkedIn" /></a>
+  <a href="https://t.me/lephianh386ht" title="Telegram: @lephianh386ht"><img src="https://img.shields.io/badge/Telegram-1A1B26?style=for-the-badge&logo=telegram&logoColor=7AA2F7" alt="Telegram" /></a>
+  <a href="https://x.com/lephianh386ht" title="X: @lephianh386ht"><img src="https://img.shields.io/badge/X-1A1B26?style=for-the-badge&logo=x&logoColor=7AA2F7" alt="X" /></a>
+  <a href="https://www.tiktok.com/@lephianhdev" title="TikTok: @lephianhdev"><img src="https://img.shields.io/badge/TikTok-1A1B26?style=for-the-badge&logo=tiktok&logoColor=7AA2F7" alt="TikTok" /></a>
+</p>
 
 <div align="center">
-
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=LePhiAnhDev&theme=github_dark" alt="Contributions over the past year, public repositories, and account age" />
-
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=LePhiAnhDev&theme=github_dark" alt="Total stars, commits, pull requests and issues" />
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=LePhiAnhDev&theme=github_dark" alt="Top languages by commit" />
-
+  <br />
+  <sub>Thanks for stopping by.</sub>
+  <br /><br />
+  <img src="https://komarev.com/ghpvc/?username=LePhiAnhDev&label=Profile%20views&color=7AA2F7&style=flat-square" alt="Profile views" />
+  <img src="assets/footer.svg" width="100%" alt="" />
 </div>
-
----
-
-## 📫 Let's Connect
-
-<div align="center">
-
-[![Portfolio](https://img.shields.io/badge/Portfolio-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://lephianhdev.github.io/portfolio-page/ "Portfolio — lephianhdev.github.io")
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lephianh2006ht@gmail.com "Email — lephianh2006ht@gmail.com")
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/phianhledev/ "LinkedIn — in/phianhledev")
-[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LePhiAnhDev "GitHub — @LePhiAnhDev")
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/lephianh386ht "Telegram — @lephianh386ht")
-[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/lephianhdev "X — @lephianhdev")
-[![TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@lephianhdev "TikTok — @lephianhdev")
-
-</div>
-
----
-
-<div align="center">
-
-### ⭐ Open for Opportunities
-
-**📍 Ho Chi Minh City, Vietnam**
-
-</div>
-
----

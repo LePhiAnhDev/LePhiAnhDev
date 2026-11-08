@@ -1,0 +1,57 @@
+{
+  "$comment": "Source of every generated asset under assets/. Edit here, then run: node scripts/build-profile.mjs assets",
+  "username": "LePhiAnhDev",
+  "palette": {
+    "$comment": "Tokyo Night. bg is the plate colour every card and banner sits on, so they read as dark plates on both GitHub themes.",
+    "bg": "1A1B26",
+    "line": "292E42",
+    "text": "C0CAF5",
+    "blue": "7AA2F7",
+    "purple": "BB9AF7",
+    "purpleOnLight": "9D7CD8",
+    "green": "9ECE6A"
+  },
+  "header": {
+    "text": "Le Phi Anh",
+    "desc": "Full-Stack · Blockchain · AI Engineer",
+    "height": 200
+  },
+  "typing": {
+    "$comment": "No background behind this line, so its colour (purpleOnLight) has to read on white and on #0d1117.",
+    "lines": [
+      "Full-Stack Engineer",
+      "Blockchain Engineer",
+      "AI Engineer",
+      "Mammothon 2025 Champion"
+    ]
+  },
+  "footer": {
+    "height": 110
+  },
+  "stack": {
+    "$comment": "Icons come from skillicons.dev; ids skillicons does not have are drawn from simple-icons with the tile and glyph colours given in custom.",
+    "simpleIconsVersion": "16.30.0",
+    "groups": [
+      { "id": "languages", "label": "Languages", "icons": ["ts", "py", "go"] },
+      { "id": "frontend", "label": "Frontend", "icons": ["react", "nextjs", "tailwind", "shadcn"] },
+      { "id": "backend", "label": "Backend", "icons": ["nodejs", "express", "nestjs", "gin", "fastapi"] },
+      { "id": "databases", "label": "Databases", "icons": ["postgres", "mysql", "sqlite", "mongodb", "redis"] },
+      { "id": "devops", "label": "DevOps & Cloud", "icons": ["linux", "docker", "nginx", "traefik", "aws", "vercel", "cloudflare"] },
+      { "id": "tools", "label": "Tools", "icons": ["git", "postman", "jira"] }
+    ],
+    "names": {
+      "ts": "TypeScript", "py": "Python", "go": "Go",
+      "react": "React", "nextjs": "Next.js", "tailwind": "Tailwind CSS", "shadcn": "shadcn/ui",
+      "nodejs": "Node.js", "express": "Express", "nestjs": "NestJS", "gin": "Gin", "fastapi": "FastAPI",
+      "postgres": "PostgreSQL", "mysql": "MySQL", "sqlite": "SQLite", "mongodb": "MongoDB", "redis": "Redis",
+      "linux": "Linux", "docker": "Docker", "nginx": "Nginx", "traefik": "Traefik", "aws": "AWS", "vercel": "Vercel", "cloudflare": "Cloudflare",
+      "git": "Git", "postman": "Postman", "jira": "Jira"
+    },
+    "custom": {
+      "shadcn": { "slug": "shadcnui", "tile": "242938", "glyph": "FFFFFF" },
+      "gin": { "slug": "gin", "tile": "242938", "glyph": "00ADD8" },
+      "traefik": { "slug": "traefikproxy", "tile": "242938", "glyph": "24A1C1" },
+      "jira": { "slug": "jira", "tile": "0052CC", "glyph": "FFFFFF" }
+    }
+  }
+}

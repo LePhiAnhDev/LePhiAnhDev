@@ -1,0 +1,111 @@
+# Rebuilds the profile's live cards and publishes them to the `output` branch.
+#
+# The README embeds them from raw.githubusercontent.com/<owner>/<owner>/output/,
+# so main never collects daily bot commits. `output` is force-pushed as a single
+# orphan commit each run.
+#
+# Every card is optional: a card that fails keeps yesterday's file (restored
+# from `output` first), the other cards still publish, and the run is marked
+# failed at the end so GitHub emails the owner.
+#
+# Token: STATS_TOKEN (fine-grained PAT, read-only Contents on all repositories)
+# lets the stats and languages cards include private repositories. Without it
+# the workflow falls back to GITHUB_TOKEN and counts public data only.
+
+name: Profile cards
+
+on:
+  schedule:
+    - cron: "30 16 * * *" # 23:30 in Ho Chi Minh City, so the day's contributions are in
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/profile.yml
+      - profile.config.json
+      - scripts/build-profile.mjs
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: false
+
+env:
+  CARD_STYLE: theme=tokyonight&bg_color=1A1B26&border_color=292E42&card_width=400
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Restore the published cards
+        run: |
+          mkdir -p dist
+          if git fetch --depth=1 origin output; then
+            git archive FETCH_HEAD | tar -x -C dist
+          else
+            echo "No output branch yet; starting empty."
+          fi
+
+      - name: Stats card
+        id: stats
+        continue-on-error: true
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&custom_title=GitHub Stats&${{ env.CARD_STYLE }}
+          path: dist/stats.svg
+          token: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Most used languages card
+        id: langs
+        continue-on-error: true
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          # Query-language and markup files (TSQL, HTML, CSS) say little about the stack, so they are hidden.
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=8&hide=tsql,html,css&${{ env.CARD_STYLE }}
+          path: dist/top-langs.svg
+          token: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Streak card
+        id: streak
+        continue-on-error: true
+        run: node scripts/build-profile.mjs streak dist/streak.svg
+
+      - name: Contribution snake
+        id: snake
+        continue-on-error: true
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake.svg?color_snake=#BB9AF7&color_dots=#24283B,#2F3F6E,#3D59A1,#5A7ECF,#7AA2F7
+
+      - name: Put the snake on the palette's plate
+        id: plate
+        if: steps.snake.outcome == 'success'
+        continue-on-error: true
+        run: node scripts/build-profile.mjs plate dist/snake.svg
+
+      - name: Publish to the output branch
+        run: |
+          cd dist
+          ls -la
+          git init -q -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Profile cards for $(date -u +%Y-%m-%d)"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" output
+
+      - name: Report cards that did not refresh
+        if: steps.stats.outcome == 'failure' || steps.langs.outcome == 'failure' || steps.streak.outcome == 'failure' || steps.snake.outcome == 'failure' || steps.plate.outcome == 'failure'
+        run: |
+          echo "::error::Some cards kept yesterday's version: stats=${{ steps.stats.outcome }} langs=${{ steps.langs.outcome }} streak=${{ steps.streak.outcome }} snake=${{ steps.snake.outcome }} plate=${{ steps.plate.outcome }}"
+          exit 1
