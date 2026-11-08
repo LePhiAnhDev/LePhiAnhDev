@@ -8,9 +8,15 @@
 # from `output` first), the other cards still publish, and the run is marked
 # failed at the end so GitHub emails the owner.
 #
-# Token: STATS_TOKEN (fine-grained PAT, read-only Contents on all repositories)
-# lets the stats and languages cards include private repositories. Without it
-# the workflow falls back to GITHUB_TOKEN and counts public data only.
+# Token: STATS_TOKEN (fine-grained PAT "profile-readme-stats", read-only Contents
+# on all repositories) lets the stats and languages cards include private
+# repositories. Without it the workflow falls back to GITHUB_TOKEN and counts
+# public data only. The token expires on 2027-11-08: after that the two cards
+# fail and keep their last version until a new token replaces the secret.
+#
+# GitHub disables scheduled workflows in a public repository after 60 days with
+# no activity, and a profile repository can go that long untouched. The last
+# step re-enables this workflow on every run, which resets that clock.
 
 name: Profile cards
 
@@ -27,6 +33,7 @@ on:
 
 permissions:
   contents: write
+  actions: write # keep-alive: re-enable this workflow
 
 concurrency:
   group: profile-cards
@@ -103,6 +110,13 @@ jobs:
           git add -A
           git commit -q -m "Profile cards for $(date -u +%Y-%m-%d)"
           git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" output
+
+      - name: Keep the daily schedule enabled
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method PUT "repos/${{ github.repository }}/actions/workflows/profile.yml/enable"
 
       - name: Report cards that did not refresh
         if: steps.stats.outcome == 'failure' || steps.langs.outcome == 'failure' || steps.streak.outcome == 'failure' || steps.snake.outcome == 'failure' || steps.plate.outcome == 'failure'

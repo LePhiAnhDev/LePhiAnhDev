@@ -6,8 +6,10 @@
   - The stats, languages, streak and snake cards are rebuilt daily by
     .github/workflows/profile.yml and published to the `output` branch, which
     keeps main free of bot commits. If a refresh fails, yesterday's cards stay.
-  - Palette: Tokyo Night. Every card is an opaque #1A1B26 plate, so the page
-    reads the same on GitHub's light and dark themes.
+  - Palette: Tokyo Night. Cards and the About terminal sit on opaque #1A1B26
+    plates and the header and footer waves on an opaque #0D1117 base, so the
+    page reads the same on GitHub's light and dark themes. The typing line has
+    no plate; its colour (#9D7CD8) is chosen to read on both.
 -->
 
 <div align="center">
@@ -34,8 +36,9 @@
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/stats.svg" alt="Overview: stars, commits, pull requests, issues and rank" />
-  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/top-langs.svg" alt="Most used languages" />
+  <!-- align="top": the two cards differ in height by a few pixels, so their tops line up rather than their bottoms. -->
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/stats.svg" align="top" alt="Overview: stars, commits, pull requests, issues and rank" />
+  <img src="https://raw.githubusercontent.com/LePhiAnhDev/LePhiAnhDev/output/top-langs.svg" align="top" alt="Most used languages" />
 </p>
 
 <p align="center">
@@ -97,7 +100,7 @@
 ## 📫 Connect
 
 <p align="center">
-  <a href="https://lephianhdev.github.io/portfolio-page/" title="Portfolio"><img src="https://img.shields.io/badge/Portfolio-1A1B26?style=for-the-badge&logo=googlechrome&logoColor=7AA2F7" alt="Portfolio" /></a>
+  <a href="https://lephianhdev.github.io/portfolio-page/" title="Portfolio: lephianhdev.github.io/portfolio-page"><img src="https://img.shields.io/badge/Portfolio-1A1B26?style=for-the-badge&logo=googlechrome&logoColor=7AA2F7" alt="Portfolio" /></a>
   <a href="mailto:lephianh2006ht@gmail.com" title="lephianh2006ht@gmail.com"><img src="https://img.shields.io/badge/Email-1A1B26?style=for-the-badge&logo=gmail&logoColor=7AA2F7" alt="Email" /></a>
   <a href="https://www.linkedin.com/in/phianhledev/" title="LinkedIn: in/phianhledev"><img src="https://img.shields.io/badge/LinkedIn-1A1B26?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzdBQTJGNyIgZD0iTTIwLjQ1IDIwLjQ1aC0zLjU2di01LjU3YzAtMS4zMy0uMDItMy4wNC0xLjg1LTMuMDQtMS44NSAwLTIuMTQgMS40NS0yLjE0IDIuOTR2NS42N0g5LjM1VjloMy40MXYxLjU2aC4wNWMuNDgtLjkgMS42NC0xLjg1IDMuMzctMS44NSAzLjYgMCA0LjI3IDIuMzcgNC4yNyA1LjQ2djYuMjh6TTUuMzQgNy40M2EyLjA2IDIuMDYgMCAxIDEgMC00LjEzIDIuMDYgMi4wNiAwIDAgMSAwIDQuMTN6TTcuMTIgMjAuNDVIMy41NlY5aDMuNTZ2MTEuNDV6TTIyLjIyIDBIMS43N0MuNzkgMCAwIC43NyAwIDEuNzN2MjAuNTRDMCAyMy4yMy43OSAyNCAxLjc3IDI0aDIwLjQ1Yy45OCAwIDEuNzgtLjc3IDEuNzgtMS43M1YxLjczQzI0IC43NyAyMy4yIDAgMjIuMjIgMHoiLz48L3N2Zz4=" alt="LinkedIn" /></a>
   <a href="https://t.me/lephianh386ht" title="Telegram: @lephianh386ht"><img src="https://img.shields.io/badge/Telegram-1A1B26?style=for-the-badge&logo=telegram&logoColor=7AA2F7" alt="Telegram" /></a>

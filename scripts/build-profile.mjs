@@ -243,7 +243,7 @@ function aboutCard({ narrow, font }) {
     body.push(`<g>${appear(at())}${key}<text x="${valX}" y="${y}" fill="${l.color}">${xml(l.text)}</text></g>`);
   }
   y += lh * 2 - 14;
-  const sw = narrow ? 22 : 26, gap = narrow ? 4 : 4;
+  const sw = narrow ? 22 : 26, gap = 4;
   body.push(`<g>${appear(at())}${C.swatches.map((c, i) => `<rect x="${infoX + i * (sw + gap)}" y="${y}" width="${sw}" height="14" rx="3" fill="${c}"/>`).join("")}</g>`);
   const done = at() + 0.15;
 
